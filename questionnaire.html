@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Coaching Discovery Questionnaire | Iskra Coaching</title>
+    <meta name="description" content="A short reflective questionnaire to complete before your first Iskra Coaching session, so we can make the most of our time together.">
+    <meta name="theme-color" content="#0E151D">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E151D'/%3E%3Cpath d='M50 12C52 38 62 48 88 50 62 52 52 62 50 88 48 62 38 52 12 50 38 48 48 38 50 12Z' fill='%23D9BB8B'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <script>document.documentElement.classList.add('js');</script>
+
+    <style>
+        /* ------------------------------------------------------------
+           Tokens
+        ------------------------------------------------------------ */
+        :root {
+            --ink: #0E151D;
+            --ink-2: #131C26;
+            --navy: #15304D;
+            --alabaster: #F6F3EC;
+            --paper: #FBFAF7;
+            --line: rgba(21, 48, 77, 0.14);
+            --text: #232A32;
+            --muted: #5A6572;
+            --gold: #A98A53;
+            --gold-deep: #7A5F31;
+            --champagne: #D9BB8B;
+            --on-dark: #EDE9E0;
+            --on-dark-muted: #AEB7C2;
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --gutter: clamp(1.25rem, 5vw, 3rem);
+            --max: 1200px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        img, svg { display: block; max-width: 100%; }
+        a { color: inherit; }
+        h1, h2, h3 { text-wrap: balance; }
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+        ::selection { background: var(--champagne); color: var(--ink); }
+
+        .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+        .skip {
+            position: absolute; left: 1rem; top: -4rem; z-index: 100;
+            background: var(--champagne); color: var(--ink);
+            padding: .7rem 1.1rem; border-radius: 8px; font-weight: 500; text-decoration: none;
+            transition: top .2s;
+        }
+        .skip:focus { top: 1rem; }
+
+        /* ------------------------------------------------------------
+           Buttons
+        ------------------------------------------------------------ */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+            padding: 1.05rem 2rem; border-radius: 999px;
+            font: 500 .95rem/1 var(--sans); letter-spacing: .01em; text-decoration: none;
+            border: 1px solid transparent; cursor: pointer;
+            transition: transform .35s ease, box-shadow .35s ease, background-position .6s ease, border-color .3s, color .3s;
+        }
+        .btn-gold {
+            color: var(--ink);
+            background: linear-gradient(120deg, #EAD3A8 0%, #CFAE74 45%, #B38F57 100%);
+            background-size: 170% 100%;
+            box-shadow: 0 10px 30px -12px rgba(201, 168, 112, .6), inset 0 1px 0 rgba(255, 255, 255, .5);
+        }
+        .btn-gold:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px -14px rgba(201, 168, 112, .75), inset 0 1px 0 rgba(255, 255, 255, .55);
+        }
+        .btn-gold:disabled { opacity: .6; cursor: progress; transform: none; }
+        .btn-sm { padding: .8rem 1.35rem; font-size: .88rem; }
+
+        .link-quiet {
+            color: var(--on-dark); text-decoration: none;
+            border-bottom: 1px solid rgba(217, 187, 139, .55); padding-bottom: 3px;
+            transition: color .3s, border-color .3s;
+        }
+        .link-quiet:hover { color: var(--champagne); border-color: var(--champagne); }
+
+        .link-gold {
+            color: var(--gold-deep); font-weight: 500; text-decoration: none;
+            border-bottom: 1px solid currentColor; padding-bottom: 2px;
+            transition: color .3s;
+        }
+        .link-gold:hover { color: var(--ink); }
+        .on-dark .link-gold, .link-gold.on-dark { color: var(--champagne); }
+        .on-dark .link-gold:hover, .link-gold.on-dark:hover { color: var(--on-dark); }
+
+        /* ------------------------------------------------------------
+           Navigation
+        ------------------------------------------------------------ */
+        .nav {
+            position: fixed; inset: 0 0 auto 0; z-index: 50;
+            border-bottom: 1px solid transparent;
+            transition: background .4s, border-color .4s, backdrop-filter .4s;
+        }
+        .nav.scrolled {
+            background: rgba(14, 21, 29, .8);
+            -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+            border-color: rgba(237, 233, 224, .08);
+        }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+        .brand {
+            display: inline-flex; align-items: center; gap: .65rem;
+            font: 500 1.45rem/1 var(--serif); letter-spacing: .01em;
+            color: var(--on-dark); text-decoration: none;
+        }
+        .brand svg { width: 18px; height: 18px; }
+        .brand span { color: var(--champagne); font-weight: 400; }
+        .nav-links { display: flex; align-items: center; gap: 2.2rem; }
+        .nav-links a:not(.btn) {
+            position: relative; font-size: .92rem; color: var(--on-dark-muted); text-decoration: none;
+            padding-block: .3rem; transition: color .3s;
+        }
+        .nav-links a:not(.btn)::after {
+            content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+            background: var(--champagne); transform: scaleX(0); transform-origin: left;
+            transition: transform .4s ease;
+        }
+        .nav-links a:not(.btn):hover { color: var(--on-dark); }
+        .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+        .menu-btn {
+            display: none; align-items: center; justify-content: center;
+            width: 2.75rem; height: 2.75rem; background: none; border: 0; cursor: pointer; color: var(--on-dark);
+        }
+        .menu-btn svg { width: 26px; height: 26px; }
+
+        /* ------------------------------------------------------------
+           Hero
+        ------------------------------------------------------------ */
+        .hero {
+            position: relative; isolation: isolate; overflow: hidden;
+            min-height: 100vh; min-height: 100svh;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background: var(--ink); color: var(--on-dark);
+        }
+        .hero::before {
+            content: ""; position: absolute; inset: 0; z-index: -2;
+            background:
+                radial-gradient(55% 50% at 80% 30%, rgba(217, 187, 139, .17), transparent 70%),
+                radial-gradient(45% 45% at 6% 100%, rgba(21, 48, 77, .7), transparent 72%),
+                linear-gradient(180deg, #0E151D 0%, #121B25 100%);
+        }
+        .spark {
+            position: absolute; z-index: -1;
+            right: max(var(--gutter), 6vw); top: 15%;
+            width: min(36vw, 430px); aspect-ratio: 1;
+            animation: ignite 1.7s cubic-bezier(.2, .8, .2, 1) .35s both;
+        }
+        .spark svg { width: 100%; height: 100%; overflow: visible;
+            filter: drop-shadow(0 0 26px rgba(217, 187, 139, .45)) drop-shadow(0 0 90px rgba(201, 168, 112, .28)); }
+        .hero-body { position: relative; padding-top: 9rem; padding-bottom: clamp(3rem, 6vw, 5rem); }
+        .hero-title {
+            margin: 0 0 1.75rem;
+            font: 500 clamp(2.75rem, 7vw, 5.75rem)/1.04 var(--serif);
+            letter-spacing: -.015em; color: #F6F2E9;
+        }
+        .hero-title span { display: block; }
+        .hero-sub {
+            max-width: 37rem; margin: 0 0 2.5rem;
+            font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 300; line-height: 1.7;
+            color: var(--on-dark-muted);
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.25rem; }
+
+        .proof { position: relative; border-top: 1px solid rgba(237, 233, 224, .12); }
+        .proof ul {
+            list-style: none; margin: 0; padding: 1.6rem 0;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+        }
+        .proof li { padding-left: 1rem; border-left: 1px solid rgba(217, 187, 139, .45); font-size: .86rem; line-height: 1.5; color: var(--on-dark-muted); }
+        .proof strong { display: block; font-weight: 500; font-size: .95rem; color: var(--on-dark); }
+
+        @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+        @keyframes ignite {
+            0%   { opacity: 0; transform: scale(.15) rotate(-35deg); filter: blur(8px); }
+            55%  { opacity: 1; }
+            100% { opacity: 1; transform: none; filter: none; }
+        }
+        .rise { animation: rise 1s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--d, 0s); }
+
+        /* ------------------------------------------------------------
+           Sections
+        ------------------------------------------------------------ */
+        .section { padding-block: clamp(5rem, 10vw, 8.5rem); position: relative; }
+        .section-light { background: var(--alabaster); }
+        .section-paper { background: var(--paper); }
+        .section-dark  { background: var(--ink); color: var(--on-dark); isolation: isolate; overflow: hidden; }
+
+        h2 {
+            margin: 0 0 1.25rem;
+            font: 500 clamp(2rem, 4.2vw, 3.3rem)/1.12 var(--serif);
+            letter-spacing: -.01em; color: var(--ink);
+        }
+        h3 { font-family: var(--serif); font-weight: 500; }
+        .section-dark h2, .on-dark h2 { color: #F6F2E9; }
+        .lead { max-width: 34rem; margin: 0; font-size: 1.1rem; color: var(--muted); }
+        .section-dark .lead, .on-dark .lead { color: var(--on-dark-muted); }
+
+        .js .reveal {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1);
+            transition-delay: var(--d, 0s);
+        }
+        .js .reveal.in { opacity: 1; transform: none; }
+
+        /* ---- Method ---- */
+        .method-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .method-intro { position: sticky; top: 7rem; }
+        .method-intro .lead { margin-bottom: 1.75rem; }
+        .phases { list-style: none; margin: 0; padding: 0; }
+        .phases li {
+            display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem;
+            padding-block: 2.1rem; border-top: 1px solid var(--line);
+        }
+        .phases li:last-child { border-bottom: 1px solid var(--line); }
+        .phase-n { font: 500 2.4rem/1 var(--serif); color: var(--gold); }
+        .phases h3 { margin: 0 0 .5rem; font-size: 1.65rem; line-height: 1.2; color: var(--ink); }
+        .phases p { margin: 0; color: var(--muted); max-width: 32rem; }
+
+        .principles {
+            margin-top: clamp(3.5rem, 7vw, 5.5rem); padding-top: clamp(2rem, 4vw, 3rem);
+            border-top: 1px solid var(--ink);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 4vw, 3.5rem);
+        }
+        .principles h3 { margin: 0 0 .6rem; font-size: 1.3rem; color: var(--ink); }
+        .principles p { margin: 0; color: var(--muted); font-size: .98rem; }
+
+        /* ---- Services ---- */
+        .glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(10px); }
+        .glow-a { width: 46rem; height: 46rem; left: -14rem; top: -10rem; background: radial-gradient(closest-side, rgba(217, 187, 139, .22), transparent); }
+        .glow-b { width: 52rem; height: 52rem; right: -18rem; bottom: -16rem; background: radial-gradient(closest-side, rgba(21, 48, 77, .95), transparent); }
+        .glow-c { width: 28rem; height: 28rem; left: 42%; top: 40%; background: radial-gradient(closest-side, rgba(169, 138, 83, .16), transparent); }
+
+        .section-head { max-width: 40rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
+        .card {
+            display: flex; flex-direction: column; padding: 2.4rem 2.1rem 2.1rem; border-radius: 22px;
+            background: linear-gradient(160deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .03));
+            border: 1px solid rgba(237, 233, 224, .15);
+            -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%);
+            box-shadow: 0 30px 60px -32px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .09);
+            transition: transform .5s cubic-bezier(.2, .7, .2, 1), border-color .4s, box-shadow .5s;
+        }
+        .card:hover {
+            transform: translateY(-6px); border-color: rgba(217, 187, 139, .55);
+            box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .75), 0 0 0 1px rgba(217, 187, 139, .12), inset 0 1px 0 rgba(255, 255, 255, .12);
+        }
+        .card-icon {
+            width: 3.4rem; height: 3.4rem; margin-bottom: 1.75rem; border-radius: 50%;
+            display: grid; place-items: center;
+            border: 1px solid rgba(217, 187, 139, .45); color: var(--champagne);
+        }
+        .card-icon svg { width: 24px; height: 24px; }
+        .card h3 { margin: 0 0 .9rem; font-size: 1.55rem; line-height: 1.22; color: #F6F2E9; }
+        .card > p { margin: 0 0 1.5rem; color: var(--on-dark-muted); font-size: .98rem; }
+        .card ul { list-style: none; margin: 0 0 2rem; padding: 1.25rem 0 0; border-top: 1px solid rgba(237, 233, 224, .12); }
+        .card li { position: relative; padding: .3rem 0 .3rem 1.5rem; font-size: .93rem; color: var(--on-dark); }
+        .card li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: .8rem; height: 1px; background: var(--champagne); }
+        .card .link-gold { margin-top: auto; align-self: flex-start; }
+
+        /* ---- Founder ---- */
+        .founder-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+        .portrait-wrap { position: relative; width: min(100%, 420px); margin-inline: auto; }
+        .portrait {
+            position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+            background: radial-gradient(circle at 30% 25%, #24425F 0%, var(--navy) 45%, var(--ink) 100%);
+            box-shadow: 0 0 0 8px var(--paper), 0 0 0 10px #CFE7F1, 0 50px 90px -45px rgba(14, 21, 29, .65);
+        }
+        .portrait .monogram {
+            position: absolute; inset: 0; display: grid; place-items: center;
+            font: 500 clamp(6rem, 16vw, 9rem)/1 var(--serif); color: var(--champagne); opacity: .9;
+        }
+        .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .portrait-spark { position: absolute; right: 4%; top: 2%; width: 3.2rem; height: 3.2rem; }
+        .founder-copy p { margin: 0 0 1.15rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+        .founder-copy p.big { font: 400 1.4rem/1.5 var(--serif); color: var(--ink); }
+        .background-list {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin: 2.25rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line);
+        }
+        .background-list dt { font: 500 1.05rem/1.3 var(--serif); color: var(--ink); margin-bottom: .3rem; }
+        .background-list dd { margin: 0; font-size: .9rem; color: var(--muted); line-height: 1.55; }
+
+        /* ---- Community ---- */
+        .community { background: linear-gradient(135deg, var(--navy) 0%, #0F2338 100%); color: var(--on-dark); }
+        .community-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .community h2 { color: #F6F2E9; }
+        .community .lead { color: #BFC9D5; }
+        .give { padding-block: 1.9rem; border-top: 1px solid rgba(237, 233, 224, .18); }
+        .give:last-child { border-bottom: 1px solid rgba(237, 233, 224, .18); }
+        .give h3 { margin: 0 0 .5rem; font-size: 1.45rem; color: #F6F2E9; }
+        .give p { margin: 0 0 1rem; color: #BFC9D5; max-width: 30rem; }
+
+        /* ---- Booking ---- */
+        .book-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .assurances { list-style: none; margin: 2rem 0; padding: 0; }
+        .assurances li { position: relative; padding: .55rem 0 .55rem 1.75rem; color: var(--on-dark); }
+        .assurances li::before { content: ""; position: absolute; left: 0; top: 1.3em; width: .85rem; height: 1px; background: var(--champagne); }
+        .fineprint { font-size: .85rem; color: var(--on-dark-muted); max-width: 30rem; }
+
+        .form-panel {
+            padding: clamp(1.75rem, 4vw, 2.75rem); border-radius: 26px;
+            background: var(--alabaster); color: var(--text);
+            box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .6);
+        }
+        .form-panel h3 { margin: 0 0 1.5rem; font-size: 1.75rem; color: var(--ink); }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+        .field { margin-bottom: 1.1rem; }
+        .field label { display: block; margin-bottom: .45rem; font-size: .88rem; font-weight: 500; color: var(--ink); }
+        .field input, .field select, .field textarea {
+            width: 100%; padding: .9rem 1rem; border-radius: 12px;
+            border: 1px solid #D6D0C3; background: #fff; color: var(--ink);
+            font: 400 .98rem/1.4 var(--sans);
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .field textarea { resize: vertical; min-height: 7rem; }
+        .field input::placeholder, .field textarea::placeholder { color: #8A929B; }
+        .field input:focus, .field select:focus, .field textarea:focus {
+            outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(169, 138, 83, .25);
+        }
+        .consent { display: flex; gap: .7rem; align-items: flex-start; margin: .4rem 0 1.5rem; font-size: .88rem; color: var(--muted); }
+        .consent input { margin-top: .25rem; accent-color: var(--gold-deep); }
+        .form-panel .btn { width: 100%; }
+        .form-status { min-height: 1.4rem; margin: 1rem 0 0; font-size: .9rem; color: var(--muted); }
+        .form-status.ok { color: #2F6B45; }
+        .form-status.err { color: #9A3B2E; }
+        .alt-book { margin: 1rem 0 0; text-align: center; font-size: .88rem; color: var(--muted); }
+
+        /* ---- Footer ---- */
+        .footer { background: #0A1017; color: var(--on-dark-muted); padding-top: clamp(3.5rem, 7vw, 5rem); }
+        .footer-grid { display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 2.5rem; padding-bottom: 3rem; }
+        .footer .brand { margin-bottom: 1rem; }
+        .tagline { margin: 0 0 .75rem; font: italic 400 1.35rem/1.3 var(--serif); color: var(--champagne); }
+        .footer p.note { margin: 0; max-width: 24rem; font-size: .9rem; }
+        .footer h4 { margin: 0 0 1rem; font: 500 .95rem/1 var(--serif); color: var(--on-dark); }
+        .footer ul { list-style: none; margin: 0; padding: 0; }
+        .footer li { margin-bottom: .6rem; }
+        .footer a { text-decoration: none; font-size: .92rem; transition: color .3s; }
+        .footer a:hover { color: var(--champagne); }
+        .social { display: flex; gap: .75rem; }
+        .social a {
+            width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 50%;
+            border: 1px solid rgba(237, 233, 224, .2); color: var(--on-dark);
+            transition: border-color .3s, color .3s, transform .3s;
+        }
+        .social a:hover { border-color: var(--champagne); color: var(--champagne); transform: translateY(-2px); }
+        .social svg { width: 18px; height: 18px; }
+        .footer-bar {
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+            padding-block: 1.6rem; border-top: 1px solid rgba(237, 233, 224, .1); font-size: .85rem;
+        }
+        .footer-bar div { display: flex; gap: 1.5rem; }
+
+        /* ------------------------------------------------------------
+           Responsive
+        ------------------------------------------------------------ */
+        @media (max-width: 960px) {
+            .cards { grid-template-columns: 1fr; max-width: 34rem; }
+            .method-grid, .founder-grid, .community-grid, .book-grid { grid-template-columns: 1fr; }
+            .method-intro { position: static; }
+            .principles { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid > :first-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 880px) {
+            .menu-btn { display: inline-flex; }
+            .nav-links {
+                display: none; position: absolute; top: 5rem; left: 0; right: 0;
+                flex-direction: column; align-items: stretch; gap: 0;
+                padding: .5rem var(--gutter) 1.75rem;
+                background: rgba(14, 21, 29, .97);
+                -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(237, 233, 224, .1);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a:not(.btn) { padding: 1rem 0; border-bottom: 1px solid rgba(237, 233, 224, .08); font-size: 1rem; }
+            .nav-links a:not(.btn)::after { display: none; }
+            .nav-links .btn { margin-top: 1.25rem; }
+        }
+        @media (max-width: 760px) {
+            .proof ul { grid-template-columns: 1fr 1fr; }
+            .spark { top: 9%; width: 52vw; opacity: .55; right: -6vw; }
+            .background-list { grid-template-columns: 1fr; }
+            .field-row { grid-template-columns: 1fr; gap: 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .js .reveal { opacity: 1; transform: none; }
+        }
+    
+        /* ------------------------------------------------------------
+           Questionnaire page
+        ------------------------------------------------------------ */
+        .nav.scrolled { background: rgba(14, 21, 29, .92); }
+        .progress { position: fixed; top: 5rem; left: 0; right: 0; height: 2px; z-index: 49; background: rgba(237, 233, 224, .08); }
+        .progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #EAD3A8, #B38F57); transition: width .4s ease; }
+
+        .q-head { padding-top: 10rem; padding-bottom: clamp(3.5rem, 7vw, 5.5rem); position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--on-dark); }
+        .q-head::before {
+            content: ""; position: absolute; inset: 0; z-index: -1;
+            background:
+                radial-gradient(50% 70% at 90% 10%, rgba(217, 187, 139, .16), transparent 70%),
+                radial-gradient(45% 60% at 0% 100%, rgba(21, 48, 77, .7), transparent 72%);
+        }
+        .eyebrow { margin: 0 0 1.25rem; font-size: .8rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--champagne); }
+        .q-head h1 { margin: 0 0 1.5rem; max-width: 18ch; font: 500 clamp(2.4rem, 5.6vw, 4.4rem)/1.06 var(--serif); letter-spacing: -.015em; color: #F6F2E9; }
+        .q-head .lead { max-width: 40rem; color: var(--on-dark-muted); font-weight: 300; }
+        .q-head .fineprint { margin-top: 1.5rem; }
+
+        .q-body { background: var(--alabaster); padding-block: clamp(3rem, 7vw, 5.5rem); }
+        .q-wrap { max-width: 50rem; }
+        .q-form { display: block; }
+
+        .q-group { margin: 0 0 clamp(2.5rem, 5vw, 4rem); padding: 0; border: 0; min-width: 0; }
+        .q-group > legend { padding: 0; width: 100%; float: left; margin-bottom: 1.75rem; }
+        .q-group > legend + * { clear: both; }
+        .q-title { display: grid; grid-template-columns: 4rem 1fr; align-items: baseline; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+        .q-num { font: 500 2.6rem/1 var(--serif); color: #9A7C45; }
+        .q-title h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); }
+
+        .q { margin: 0 0 1.9rem; padding-left: 4rem; }
+        .q > label, .q > .q-legend { display: block; margin: 0 0 .35rem; font: 500 1.08rem/1.45 var(--serif); color: var(--ink); }
+        fieldset.q { border: 0; min-width: 0; margin-inline: 0; padding-top: 0; padding-right: 0; }
+        .q-legend { padding: 0; float: left; width: 100%; }
+        .q-legend + * { clear: both; }
+        .hint { display: block; margin: 0 0 .7rem; font-size: .9rem; color: var(--muted); }
+        .q textarea, .q-contact input {
+            width: 100%; padding: .9rem 1rem; border-radius: 12px;
+            border: 1px solid #8A8578; background: #fff; color: var(--ink);
+            font: 400 1rem/1.5 var(--sans);
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .q textarea { resize: vertical; min-height: 6.5rem; }
+        .q textarea:focus, .q-contact input:focus { outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(169, 138, 83, .25); }
+        .q-contact input::placeholder, .q textarea::placeholder { color: #6E7782; }
+
+        .q-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 0 0 clamp(2.5rem, 5vw, 3.5rem); padding: clamp(1.25rem, 3vw, 1.75rem); border-radius: 22px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+        .q-contact label { display: block; margin-bottom: .45rem; font-size: .88rem; font-weight: 500; color: var(--ink); }
+
+        .scale { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .45rem; margin: .35rem 0 0; }
+        .scale input { position: absolute; opacity: 0; pointer-events: none; }
+        .scale label {
+            display: grid; place-items: center; aspect-ratio: 1; min-height: 2.6rem; border-radius: 999px; cursor: pointer;
+            border: 1px solid #8A8578; background: #fff; color: var(--ink);
+            font: 500 .95rem/1 var(--sans);
+            transition: background .25s, border-color .25s, color .25s, transform .25s;
+        }
+        .scale label:hover { border-color: var(--gold-deep); transform: translateY(-1px); }
+        .scale input:checked + label { background: linear-gradient(120deg, #EAD3A8 0%, #CFAE74 45%, #B38F57 100%); border-color: #B38F57; }
+        .scale input:focus-visible + label { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+        .scale-ends { display: flex; justify-content: space-between; margin: .55rem 0 1.1rem; font-size: .82rem; color: var(--muted); }
+
+        .q-submit { padding: clamp(1.5rem, 4vw, 2.25rem); border-radius: 26px; background: var(--ink); color: var(--on-dark); }
+        .q-submit p { margin: 0 0 1.25rem; color: var(--on-dark-muted); }
+        .q-submit .btn { width: 100%; }
+        .q-submit .form-status { color: var(--on-dark-muted); }
+        .q-submit .form-status.ok { color: #8FD1A8; }
+        .q-submit .form-status.err { color: #F0A89C; }
+        .q-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; margin-top: 1rem; font-size: .88rem; color: var(--on-dark-muted); }
+        .q-actions button { background: none; border: 0; padding: 0; font: inherit; color: var(--champagne); cursor: pointer; border-bottom: 1px solid currentColor; }
+        .q-actions button:hover { color: var(--on-dark); }
+
+        @media (max-width: 640px) {
+            .q-title { grid-template-columns: 3rem 1fr; }
+            .q { padding-left: 0; }
+            .q-contact { grid-template-columns: 1fr; gap: 0; }
+            .q-contact > div { margin-bottom: 1rem; }
+            .scale { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            .scale label { aspect-ratio: auto; min-height: 3rem; }
+        }
+        @media print {
+            .nav, .progress, .footer, .q-submit, .skip { display: none !important; }
+            body, .q-body { background: #fff; }
+            .q-head { background: #fff; color: #000; padding-top: 1rem; }
+            .q-head::before { display: none; }
+            .q-head h1, .q-head .lead, .eyebrow { color: #000; }
+            .q textarea { min-height: 7rem; border-color: #999; }
+            .q-group { break-inside: avoid-page; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nav scrolled" id="nav">
+        <div class="wrap nav-inner">
+            <a href="index.html#home" class="brand" aria-label="Iskra Coaching, home">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C53 36 64 47 96 50 64 53 53 64 50 96 47 64 36 53 4 50 36 47 47 36 50 4Z" fill="#D9BB8B"/></svg>
+                Iskra <span>Coaching</span>
+            </a>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+            </button>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="index.html#method">Method</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">Founder</a>
+                <a href="index.html#community">Community</a>
+                <a href="resources.html">Resources</a>
+                <a href="index.html#book" class="btn btn-gold btn-sm">Schedule a Session</a>
+            </nav>
+        </div>
+    </header>
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+    <main id="main">
+        <section class="q-head">
+            <div class="wrap">
+                <p class="eyebrow rise">Before our first session</p>
+                <h1 class="rise" style="--d:.1s">Pre-Coaching Discovery Questionnaire</h1>
+                <p class="lead rise" style="--d:.2s">Welcome! To ensure we make the absolute most of our first session together, please take a few minutes to reflect on the questions below. There are no right or wrong answers. This is simply a baseline to help us map out where you are, where you want to go, and how we can best partner to get you there.</p>
+                <p class="fineprint rise" style="--d:.3s">Your answers are confidential. Skip anything you would rather talk through in person.</p>
+            </div>
+        </section>
+
+        <section class="q-body">
+            <div class="wrap q-wrap">
+                <!--
+                    FORM SETUP: GitHub Pages is static, so connect a form service.
+                    1) Create a free form at formspree.io (or Web3Forms / Getform).
+                    2) Replace action="#" below with your endpoint URL.
+                    The script then posts the answers and shows a success message automatically.
+                -->
+                <form class="q-form" id="qForm" action="#" method="POST" novalidate>
+                    <div class="q-contact reveal">
+                        <div>
+                            <label for="name">Full name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" placeholder="Jane Doe" required>
+                        </div>
+                        <div>
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com" required>
+                        </div>
+                    </div>
+
+            <fieldset class="q-group reveal">
+                <legend class="q-title"><span class="q-num" aria-hidden="true">1</span><h2>The Current State</h2></legend>
+                <div class="q">
+                    <label for="t1">What is the primary goal, transition, or challenge that brings you to coaching right now?</label>
+                    <textarea id="t1" name="1.1 Primary goal, transition or challenge" rows="4"></textarea>
+                </div>
+                <fieldset class="q">
+                    <legend class="q-legend">On a scale of 1 to 10, how satisfied are you with your current trajectory (whether professional, personal, or wellness-related)?</legend>
+                    <div class="scale"><input type="radio" id="s1-1" name="1.2 Satisfaction with current trajectory (1-10)" value="1"><label for="s1-1">1</label><input type="radio" id="s1-2" name="1.2 Satisfaction with current trajectory (1-10)" value="2"><label for="s1-2">2</label><input type="radio" id="s1-3" name="1.2 Satisfaction with current trajectory (1-10)" value="3"><label for="s1-3">3</label><input type="radio" id="s1-4" name="1.2 Satisfaction with current trajectory (1-10)" value="4"><label for="s1-4">4</label><input type="radio" id="s1-5" name="1.2 Satisfaction with current trajectory (1-10)" value="5"><label for="s1-5">5</label><input type="radio" id="s1-6" name="1.2 Satisfaction with current trajectory (1-10)" value="6"><label for="s1-6">6</label><input type="radio" id="s1-7" name="1.2 Satisfaction with current trajectory (1-10)" value="7"><label for="s1-7">7</label><input type="radio" id="s1-8" name="1.2 Satisfaction with current trajectory (1-10)" value="8"><label for="s1-8">8</label><input type="radio" id="s1-9" name="1.2 Satisfaction with current trajectory (1-10)" value="9"><label for="s1-9">9</label><input type="radio" id="s1-10" name="1.2 Satisfaction with current trajectory (1-10)" value="10"><label for="s1-10">10</label></div>
+                    <div class="scale-ends" aria-hidden="true"><span>1 &middot; Not at all satisfied</span><span>10 &middot; Completely satisfied</span></div>
+                </fieldset>
+                <div class="q">
+                    <label for="t2">What would it take to move that number up by two points?</label>
+                    <textarea id="t2" name="1.2 What it would take to move up two points" rows="4"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t3">What is currently working well for you?</label>
+                    <span class="hint" id="h3">What strengths, habits, or routines do you want to make sure we preserve?</span>
+                    <textarea id="t3" name="1.3 What is working well" rows="4" aria-describedby="h3"></textarea>
+                </div>
+            </fieldset>
+            <fieldset class="q-group reveal">
+                <legend class="q-title"><span class="q-num" aria-hidden="true">2</span><h2>The Future State &amp; Objectives</h2></legend>
+                <div class="q">
+                    <label for="t4">If we were celebrating your success six months from now, what specifically would have changed?</label>
+                    <textarea id="t4" name="2.1 Success six months from now" rows="4"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t5">How will you measure that success?</label>
+                    <span class="hint" id="h5">Are we looking for a tangible outcome like a career placement, or a qualitative shift like better boundary setting?</span>
+                    <textarea id="t5" name="2.2 How success will be measured" rows="4" aria-describedby="h5"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t6">What is the biggest opportunity you feel you are currently leaving on the table?</label>
+                    <textarea id="t6" name="2.3 Biggest opportunity left on the table" rows="4"></textarea>
+                </div>
+            </fieldset>
+            <fieldset class="q-group reveal">
+                <legend class="q-title"><span class="q-num" aria-hidden="true">3</span><h2>Friction &amp; Roadblocks</h2></legend>
+                <div class="q">
+                    <label for="t7">What internal obstacles usually get in the way of your goals?</label>
+                    <span class="hint" id="h7">Mindset, habits, time management, fear.</span>
+                    <textarea id="t7" name="3.1 Internal obstacles" rows="4" aria-describedby="h7"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t8">What external obstacles are currently slowing your momentum?</label>
+                    <span class="hint" id="h8">Resources, environment, organizational structure.</span>
+                    <textarea id="t8" name="3.2 External obstacles" rows="4" aria-describedby="h8"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t9">What have you already tried to solve this, and why do you think it fell short?</label>
+                    <textarea id="t9" name="3.3 What you have already tried" rows="4"></textarea>
+                </div>
+            </fieldset>
+            <fieldset class="q-group reveal">
+                <legend class="q-title"><span class="q-num" aria-hidden="true">4</span><h2>Our Coaching Partnership</h2></legend>
+                <div class="q">
+                    <label for="t10">How do you best receive feedback and support?</label>
+                    <span class="hint" id="h10">Do you prefer direct, analytical, and structured challenge, or a more reflective, exploratory space to process out loud?</span>
+                    <textarea id="t10" name="4.1 How you best receive feedback and support" rows="4" aria-describedby="h10"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t11">How will I know when to push you harder, and how will I know when to step back?</label>
+                    <textarea id="t11" name="4.2 When to push and when to step back" rows="4"></textarea>
+                </div>
+                <div class="q">
+                    <label for="t12">What is one thing you absolutely do not want from our coaching relationship?</label>
+                    <textarea id="t12" name="4.3 What you do not want from coaching" rows="4"></textarea>
+                </div>
+            </fieldset>
+            <fieldset class="q-group reveal">
+                <legend class="q-title"><span class="q-num" aria-hidden="true">5</span><h2>Readiness &amp; Commitment</h2></legend>
+                <fieldset class="q">
+                    <legend class="q-legend">Change requires energy. On a scale of 1 to 10, how ready and willing are you to take action and step outside your comfort zone right now?</legend>
+                    <div class="scale"><input type="radio" id="s2-1" name="5.1 Readiness to act (1-10)" value="1"><label for="s2-1">1</label><input type="radio" id="s2-2" name="5.1 Readiness to act (1-10)" value="2"><label for="s2-2">2</label><input type="radio" id="s2-3" name="5.1 Readiness to act (1-10)" value="3"><label for="s2-3">3</label><input type="radio" id="s2-4" name="5.1 Readiness to act (1-10)" value="4"><label for="s2-4">4</label><input type="radio" id="s2-5" name="5.1 Readiness to act (1-10)" value="5"><label for="s2-5">5</label><input type="radio" id="s2-6" name="5.1 Readiness to act (1-10)" value="6"><label for="s2-6">6</label><input type="radio" id="s2-7" name="5.1 Readiness to act (1-10)" value="7"><label for="s2-7">7</label><input type="radio" id="s2-8" name="5.1 Readiness to act (1-10)" value="8"><label for="s2-8">8</label><input type="radio" id="s2-9" name="5.1 Readiness to act (1-10)" value="9"><label for="s2-9">9</label><input type="radio" id="s2-10" name="5.1 Readiness to act (1-10)" value="10"><label for="s2-10">10</label></div>
+                    <div class="scale-ends" aria-hidden="true"><span>1 &middot; Not yet ready</span><span>10 &middot; Fully ready</span></div>
+                </fieldset>
+                <div class="q">
+                    <label for="t13">Is there anything else you would like me to know before we sit down for our first session?</label>
+                    <textarea id="t13" name="5.2 Anything else to share" rows="4"></textarea>
+                </div>
+            </fieldset>
+
+                    <div class="q-submit reveal">
+                        <p>Thank you for taking the time. I will read your answers before we meet, and we will start from there.</p>
+                        <button type="submit" class="btn btn-gold" id="submitBtn">Submit my questionnaire</button>
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                        <div class="q-actions">
+                            <span>Coaching complements, but does not replace, therapy or medical care.</span>
+                            <button type="button" id="printBtn">Print or save as PDF</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html#home" class="brand" aria-label="Iskra Coaching, home">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C53 36 64 47 96 50 64 53 53 64 50 96 47 64 36 53 4 50 36 47 47 36 50 4Z" fill="#D9BB8B"/></svg>
+                        Iskra <span>Coaching</span>
+                    </a>
+                    <p class="tagline">Focus. Plan. Results.</p>
+                    <p class="note">Structured, ICF-aligned coaching for career transitions, goal setting, and personal growth.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html#method">Method</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">Founder</a></li>
+                        <li><a href="index.html#community">Community</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="questionnaire.html">Client Questionnaire</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <span>&copy; <span id="year">2026</span> Iskra Coaching. All rights reserved.</span>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var nav = document.getElementById('nav');
+            var btn = document.getElementById('menuBtn');
+            var links = document.getElementById('navLinks');
+            btn.addEventListener('click', function () {
+                var open = !links.classList.contains('open');
+                links.classList.toggle('open', open);
+                btn.setAttribute('aria-expanded', String(open));
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+
+            var items = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+                items.forEach(function (el) { io.observe(el); });
+            } else {
+                items.forEach(function (el) { el.classList.add('in'); });
+            }
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Progress: share of questions answered
+            var form = document.getElementById('qForm');
+            var bar = document.getElementById('bar');
+            var areas = form.querySelectorAll('textarea');
+            var scales = {};
+            form.querySelectorAll('.scale input').forEach(function (r) { scales[r.name] = true; });
+            var scaleNames = Object.keys(scales);
+            function progress() {
+                var done = 0;
+                areas.forEach(function (t) { if (t.value.trim()) done++; });
+                scaleNames.forEach(function (n) { if (form.querySelector('input[name="' + n.replace(/"/g, '\\"') + '"]:checked')) done++; });
+                bar.style.width = Math.round(100 * done / (areas.length + scaleNames.length)) + '%';
+            }
+            form.addEventListener('input', progress);
+            form.addEventListener('change', progress);
+            progress();
+
+            document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+            // Submit
+            var status = document.getElementById('formStatus');
+            var submit = document.getElementById('submitBtn');
+            function say(msg, cls) { status.textContent = msg; status.className = 'form-status ' + (cls || ''); }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) { form.reportValidity(); return; }
+
+                var action = form.getAttribute('action');
+                if (!action || action === '#') {
+                    say('This form is not connected yet. Add your form service URL in questionnaire.html to start receiving responses.', 'err');
+                    return;
+                }
+
+                submit.disabled = true;
+                say('Sending...', '');
+                fetch(action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+                    .then(function (r) {
+                        if (!r.ok) throw new Error('bad response');
+                        form.reset();
+                        progress();
+                        say('Thank you. Your questionnaire has been received, and I will read it before our first session.', 'ok');
+                    })
+                    .catch(function () {
+                        say('Something went wrong sending your answers. Please try again in a moment.', 'err');
+                    })
+                    .then(function () { submit.disabled = false; });
+            });
+        })();
+    </script>
+</body>
+</html>

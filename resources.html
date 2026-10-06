@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Iskra Coaching</title>
+    <meta name="description" content="Reading lists, reflection exercises, and answers to common questions about coaching with Iskra.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23334155'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia,serif'%3EI%3C/text%3E%3C/svg%3E">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateBlue: {
+                            50: '#f1f5f9', 100: '#e2e8f0', 200: '#cbd5e1', 300: '#94a3b8', 400: '#94a3b8',
+                            500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
+                        },
+                        softGray: '#f8fafc'
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        section[id] { scroll-margin-top: 5rem; }
+        details > summary { list-style: none; cursor: pointer; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .chev { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-softGray text-slateBlue-800 antialiased selection:bg-slateBlue-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slateBlue-100 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex-shrink-0 flex items-center">
+                    <span class="font-serif text-2xl font-bold tracking-tight text-slateBlue-800">
+                        Iskra <span class="text-slateBlue-500 font-normal text-xl">Coaching</span>
+                    </span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#home" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">Home</a>
+                    <a href="index.html#about" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">About</a>
+                    <a href="index.html#services" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">Services</a>
+                    <a href="resources.html" class="text-slateBlue-900 font-semibold border-b-2 border-slateBlue-700 pb-0.5">Resources</a>
+                    <a href="index.html#book" class="bg-slateBlue-700 hover:bg-slateBlue-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                        Book a Session
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" aria-label="Toggle menu" class="text-slateBlue-600 hover:text-slateBlue-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slateBlue-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html#home" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">Home</a>
+                <a href="index.html#about" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">About</a>
+                <a href="index.html#services" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">Services</a>
+                <a href="resources.html" class="block px-3 py-2 text-slateBlue-900 bg-slateBlue-50 rounded-md font-semibold">Resources</a>
+                <a href="index.html#book" class="block px-3 py-2 mt-4 bg-slateBlue-700 text-white text-center rounded-md font-medium">Book a Session</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="relative pt-32 pb-16 lg:pt-44 lg:pb-20 bg-white overflow-hidden">
+        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 opacity-10 pointer-events-none">
+            <svg width="500" height="500" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path fill="#334155" d="M45.7,-76.4C58.9,-69.3,69.2,-55.4,78.2,-41.2C87.2,-27,94.9,-13.5,93.6,-0.7C92.2,12.1,81.9,24.2,72.4,36.1C62.9,48,54.2,59.6,42.4,66.5C30.6,73.4,15.3,75.6,1.2,73.5C-12.9,71.5,-25.8,65.3,-38.3,58.7C-50.8,52.1,-62.9,45.1,-70.6,34.4C-78.3,23.7,-81.6,9.3,-80.7,-4.8C-79.8,-18.8,-74.7,-32.5,-66,-43.3C-57.3,-54.1,-45,-62,-32.3,-68.8C-19.6,-75.6,-9.8,-81.4,2.9,-86.3C15.5,-91.3,31,-95.4,45.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h1 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3 font-sans">Resources</h1>
+            <h2 class="text-4xl md:text-6xl font-serif font-bold text-slateBlue-900 leading-tight mb-6 max-w-3xl">
+                Tools for <span class="italic text-slateBlue-600">thoughtful growth.</span>
+            </h2>
+            <p class="text-lg md:text-xl text-slateBlue-600 max-w-2xl leading-relaxed mb-8">
+                Reflection exercises, a curated reading list, and answers to common questions about coaching, whether or not we ever work together.
+            </p>
+            <div class="flex flex-wrap gap-3 text-sm font-medium">
+                <a href="#exercises" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Reflection Exercises</a>
+                <a href="#reading" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Reading List</a>
+                <a href="#downloads" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Downloads</a>
+                <a href="#faq" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Reflection exercises -->
+    <section id="exercises" class="py-20 bg-softGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Try It Yourself</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Reflection Exercises</h3>
+                <p class="text-lg text-slateBlue-600">Set aside 10 to 15 minutes, grab a notebook, and pick one.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-circle-notch text-xl"></i></div>
+                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">The Wheel of Life</h4>
+                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">A classic coaching check-in. Draw a circle divided into 8 slices: career, finances, health, relationships, fun, growth, environment, and purpose. Rate your satisfaction in each from 1 to 10 and shade it in.</p>
+                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> Which one slice, if it moved up two points, would change the rest?</p>
+                </article>
+                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-compass text-xl"></i></div>
+                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">Values Sort</h4>
+                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">Write down 15 values that matter to you (e.g. autonomy, security, creativity, service). Narrow to 5, then to your top 3. Notice what you had to let go of.</p>
+                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> Where in my current week am I honoring these? Where am I not?</p>
+                </article>
+                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-road text-xl"></i></div>
+                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">Three Futures</h4>
+                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">Sketch three versions of your life five years from now: the natural path, a very different path, and a path you would choose if money and approval were no object.</p>
+                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> What is the smallest step toward the one that excites me most?</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading list -->
+    <section id="reading" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Recommended</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Reading List</h3>
+                <p class="text-lg text-slateBlue-600">A starting shelf for career change, habits, and self-understanding. <!-- Edit this list to reflect your own favorites. --></p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Designing Your Life</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">Bill Burnett &amp; Dave Evans</p>
+                        <p class="text-sm text-slateBlue-600">Design-thinking tools for prototyping career and life changes instead of over-planning them.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Atomic Habits</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">James Clear</p>
+                        <p class="text-sm text-slateBlue-600">A practical framework for building habits that stick, one small change at a time.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Transitions</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">William Bridges</p>
+                        <p class="text-sm text-slateBlue-600">Why endings, in-between periods, and new beginnings each feel different, and how to move through them.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Mindset</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">Carol S. Dweck</p>
+                        <p class="text-sm text-slateBlue-600">How beliefs about ability shape learning, resilience, and achievement.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Emotional Agility</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">Susan David</p>
+                        <p class="text-sm text-slateBlue-600">A values-led approach to handling difficult thoughts and emotions without being run by them.</p>
+                    </div>
+                </div>
+                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
+                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
+                    <div>
+                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Essentialism</h4>
+                        <p class="text-sm text-slateBlue-500 mb-1">Greg McKeown</p>
+                        <p class="text-sm text-slateBlue-600">On doing fewer things, better, and saying no to what does not matter most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads -->
+    <section id="downloads" class="py-20 bg-softGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Free Downloads</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Worksheets &amp; Guides</h3>
+                <!--
+                    HOW TO ADD A DOWNLOAD: put your PDF in a "downloads" folder in the repo, then replace the
+                    "Coming soon" span with:
+                    <a href="downloads/wheel-of-life.pdf" download class="...">Download PDF</a>
+                -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
+                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
+                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Wheel of Life Worksheet</h4>
+                    <p class="text-sm text-slateBlue-600 mb-5">A printable version of the exercise above.</p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
+                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
+                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Career Transition Checklist</h4>
+                    <p class="text-sm text-slateBlue-600 mb-5">A step-by-step guide for planning a job or industry change.</p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+                </div>
+                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
+                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
+                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Weekly Reflection Template</h4>
+                    <p class="text-sm text-slateBlue-600 mb-5">One page to review wins, lessons, and next steps.</p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Good to Know</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900">Frequently Asked Questions</h3>
+            </div>
+            <div class="space-y-4">
+                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
+                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
+                        What is the difference between coaching and therapy?
+                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Coaching is forward-looking and goal-oriented: it helps you clarify what you want and take action. Therapy addresses mental health conditions and healing from past experiences. Coaching is not a substitute for therapy or medical care, and I may suggest working with a licensed professional if that would serve you better.</p>
+                </details>
+                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
+                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
+                        What happens in a discovery call?
+                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-slateBlue-600 leading-relaxed">It is a relaxed conversation about where you are, what you want to change, and how coaching might help. There is no pressure to commit. It is also a chance for both of us to see whether we are a good fit.</p>
+                </details>
+                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
+                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
+                        How long does coaching last and how often do we meet?
+                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Many clients meet every two weeks for three to six months, but the rhythm depends on your goals. We will agree on a structure together during onboarding. <!-- Update with your actual packages. --></p>
+                </details>
+                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
+                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
+                        Is what I share confidential?
+                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Yes. Confidentiality is a core part of ICF ethical standards. We will review the agreement, including its limited exceptions, before we begin.</p>
+                </details>
+                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
+                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
+                        How do the pro-bono and peer exchange options work?
+                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
+                    </summary>
+                    <p class="mt-4 text-slateBlue-600 leading-relaxed">A limited number of pro-bono slots are offered each month to emerging leaders, and I am open to peer coaching exchanges with fellow ICF-certified coaches. Choose the matching option in the <a href="index.html#book" class="underline text-slateBlue-700 font-medium">inquiry form</a> and tell me a little about yourself.</p>
+                </details>
+            </div>
+
+            <div class="mt-12 rounded-xl bg-slateBlue-50 border border-slateBlue-100 p-6 text-sm text-slateBlue-600 leading-relaxed">
+                <i class="fas fa-circle-info text-slateBlue-500 mr-2"></i>
+                <strong class="text-slateBlue-800">If you are in crisis:</strong> coaching is not an emergency service. In the U.S. you can call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) at any time, or call 911 in an emergency.
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn more -->
+    <section class="py-16 bg-softGray">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-serif font-bold text-slateBlue-900 mb-3">Learn more about coaching standards</h3>
+            <p class="text-slateBlue-600 mb-6">The International Coaching Federation publishes the competencies and ethics that guide professional coaching.</p>
+            <a href="https://coachingfederation.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slateBlue-700 font-medium underline hover:text-slateBlue-900">
+                coachingfederation.org <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-slateBlue-900 text-white text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-4">Ready for a conversation?</h3>
+            <p class="text-slateBlue-100 text-lg mb-8">Reading is a great start. Working through it with a partner is even better.</p>
+            <a href="index.html#book" class="inline-block bg-white text-slateBlue-900 hover:bg-slateBlue-100 px-8 py-4 rounded-full font-medium text-lg transition-all shadow-lg">Book a Consultation</a>
+        </div>
+    </section>
+
+    <footer class="bg-slateBlue-900 border-t border-slateBlue-800 text-slateBlue-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <span class="font-serif text-xl font-bold tracking-tight text-white">Iskra <span class="text-slateBlue-500 font-normal">Coaching</span></span>
+                <p class="mt-2 text-sm">Empowering individuals through professional coaching.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#" aria-label="Twitter" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" aria-label="Email" class="hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slateBlue-800 text-sm text-center md:text-left flex flex-col md:flex-row justify-between">
+            <p>&copy; <span id="year">2026</span> Iskra Coaching. All rights reserved.</p>
+            <div class="space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
