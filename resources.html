@@ -1,328 +1,800 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources | Iskra Coaching</title>
-    <meta name="description" content="Reading lists, reflection exercises, and answers to common questions about coaching with Iskra.">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23334155'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Georgia,serif'%3EI%3C/text%3E%3C/svg%3E">
+    <meta name="description" content="Reflection exercises, a reading list, and answers to common questions about coaching with Iskra.">
+    <meta name="theme-color" content="#0E151D">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230E151D'/%3E%3Cpath d='M50 12C52 38 62 48 88 50 62 52 52 62 50 88 48 62 38 52 12 50 38 48 48 38 50 12Z' fill='%23D9BB8B'/%3E%3C/svg%3E">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slateBlue: {
-                            50: '#f1f5f9', 100: '#e2e8f0', 200: '#cbd5e1', 300: '#94a3b8', 400: '#94a3b8',
-                            500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a',
-                        },
-                        softGray: '#f8fafc'
-                    },
-                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] }
-                }
-            }
-        }
-    </script>
+
+
+    <script>document.documentElement.classList.add('js');</script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-        section[id] { scroll-margin-top: 5rem; }
-        details > summary { list-style: none; cursor: pointer; }
-        details > summary::-webkit-details-marker { display: none; }
-        details[open] .chev { transform: rotate(180deg); }
+        /* ------------------------------------------------------------
+           Tokens
+        ------------------------------------------------------------ */
+        :root {
+            --ink: #0E151D;
+            --ink-2: #131C26;
+            --navy: #15304D;
+            --alabaster: #F6F3EC;
+            --paper: #FBFAF7;
+            --line: rgba(21, 48, 77, 0.14);
+            --text: #232A32;
+            --muted: #5A6572;
+            --gold: #A98A53;
+            --gold-deep: #7A5F31;
+            --champagne: #D9BB8B;
+            --on-dark: #EDE9E0;
+            --on-dark-muted: #AEB7C2;
+            --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            --gutter: clamp(1.25rem, 5vw, 3rem);
+            --max: 1200px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        body {
+            margin: 0;
+            font-family: var(--sans);
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--paper);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+        img, svg { display: block; max-width: 100%; }
+        a { color: inherit; }
+        h1, h2, h3 { text-wrap: balance; }
+        :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+        ::selection { background: var(--champagne); color: var(--ink); }
+
+        .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+        .skip {
+            position: absolute; left: 1rem; top: -4rem; z-index: 100;
+            background: var(--champagne); color: var(--ink);
+            padding: .7rem 1.1rem; border-radius: 8px; font-weight: 500; text-decoration: none;
+            transition: top .2s;
+        }
+        .skip:focus { top: 1rem; }
+
+        /* ------------------------------------------------------------
+           Buttons
+        ------------------------------------------------------------ */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+            padding: 1.05rem 2rem; border-radius: 999px;
+            font: 500 .95rem/1 var(--sans); letter-spacing: .01em; text-decoration: none;
+            border: 1px solid transparent; cursor: pointer;
+            transition: transform .35s ease, box-shadow .35s ease, background-position .6s ease, border-color .3s, color .3s;
+        }
+        .btn-gold {
+            color: var(--ink);
+            background: linear-gradient(120deg, #EAD3A8 0%, #CFAE74 45%, #B38F57 100%);
+            background-size: 170% 100%;
+            box-shadow: 0 10px 30px -12px rgba(201, 168, 112, .6), inset 0 1px 0 rgba(255, 255, 255, .5);
+        }
+        .btn-gold:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px -14px rgba(201, 168, 112, .75), inset 0 1px 0 rgba(255, 255, 255, .55);
+        }
+        .btn-gold:disabled { opacity: .6; cursor: progress; transform: none; }
+        .btn-sm { padding: .8rem 1.35rem; font-size: .88rem; }
+
+        .link-quiet {
+            color: var(--on-dark); text-decoration: none;
+            border-bottom: 1px solid rgba(217, 187, 139, .55); padding-bottom: 3px;
+            transition: color .3s, border-color .3s;
+        }
+        .link-quiet:hover { color: var(--champagne); border-color: var(--champagne); }
+
+        .link-gold {
+            color: var(--gold-deep); font-weight: 500; text-decoration: none;
+            border-bottom: 1px solid currentColor; padding-bottom: 2px;
+            transition: color .3s;
+        }
+        .link-gold:hover { color: var(--ink); }
+        .on-dark .link-gold, .link-gold.on-dark { color: var(--champagne); }
+        .on-dark .link-gold:hover, .link-gold.on-dark:hover { color: var(--on-dark); }
+
+        /* ------------------------------------------------------------
+           Navigation
+        ------------------------------------------------------------ */
+        .nav {
+            position: fixed; inset: 0 0 auto 0; z-index: 50;
+            border-bottom: 1px solid transparent;
+            transition: background .4s, border-color .4s, backdrop-filter .4s;
+        }
+        .nav.scrolled {
+            background: rgba(14, 21, 29, .8);
+            -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+            border-color: rgba(237, 233, 224, .08);
+        }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+        .brand {
+            display: inline-flex; align-items: center; gap: .65rem;
+            font: 500 1.45rem/1 var(--serif); letter-spacing: .01em;
+            color: var(--on-dark); text-decoration: none;
+        }
+        .brand svg { width: 18px; height: 18px; }
+        .brand span { color: var(--champagne); font-weight: 400; }
+        .nav-links { display: flex; align-items: center; gap: 2.2rem; }
+        .nav-links a:not(.btn) {
+            position: relative; font-size: .92rem; color: var(--on-dark-muted); text-decoration: none;
+            padding-block: .3rem; transition: color .3s;
+        }
+        .nav-links a:not(.btn)::after {
+            content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+            background: var(--champagne); transform: scaleX(0); transform-origin: left;
+            transition: transform .4s ease;
+        }
+        .nav-links a:not(.btn):hover { color: var(--on-dark); }
+        .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+        .menu-btn {
+            display: none; align-items: center; justify-content: center;
+            width: 2.75rem; height: 2.75rem; background: none; border: 0; cursor: pointer; color: var(--on-dark);
+        }
+        .menu-btn svg { width: 26px; height: 26px; }
+
+        /* ------------------------------------------------------------
+           Hero
+        ------------------------------------------------------------ */
+        .hero {
+            position: relative; isolation: isolate; overflow: hidden;
+            min-height: 100vh; min-height: 100svh;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background: var(--ink); color: var(--on-dark);
+        }
+        .hero::before {
+            content: ""; position: absolute; inset: 0; z-index: -2;
+            background:
+                radial-gradient(55% 50% at 80% 30%, rgba(217, 187, 139, .17), transparent 70%),
+                radial-gradient(45% 45% at 6% 100%, rgba(21, 48, 77, .7), transparent 72%),
+                linear-gradient(180deg, #0E151D 0%, #121B25 100%);
+        }
+        .spark {
+            position: absolute; z-index: -1;
+            right: max(var(--gutter), 6vw); top: 15%;
+            width: min(36vw, 430px); aspect-ratio: 1;
+            animation: ignite 1.7s cubic-bezier(.2, .8, .2, 1) .35s both;
+        }
+        .spark svg { width: 100%; height: 100%; overflow: visible;
+            filter: drop-shadow(0 0 26px rgba(217, 187, 139, .45)) drop-shadow(0 0 90px rgba(201, 168, 112, .28)); }
+        .hero-body { position: relative; padding-top: 9rem; padding-bottom: clamp(3rem, 6vw, 5rem); }
+        .hero-title {
+            margin: 0 0 1.75rem;
+            font: 500 clamp(2.75rem, 7vw, 5.75rem)/1.04 var(--serif);
+            letter-spacing: -.015em; color: #F6F2E9;
+        }
+        .hero-title span { display: block; }
+        .hero-sub {
+            max-width: 37rem; margin: 0 0 2.5rem;
+            font-size: clamp(1.05rem, 1.6vw, 1.25rem); font-weight: 300; line-height: 1.7;
+            color: var(--on-dark-muted);
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2.25rem; }
+
+        .proof { position: relative; border-top: 1px solid rgba(237, 233, 224, .12); }
+        .proof ul {
+            list-style: none; margin: 0; padding: 1.6rem 0;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+        }
+        .proof li { padding-left: 1rem; border-left: 1px solid rgba(217, 187, 139, .45); font-size: .86rem; line-height: 1.5; color: var(--on-dark-muted); }
+        .proof strong { display: block; font-weight: 500; font-size: .95rem; color: var(--on-dark); }
+
+        @keyframes rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+        @keyframes ignite {
+            0%   { opacity: 0; transform: scale(.15) rotate(-35deg); filter: blur(8px); }
+            55%  { opacity: 1; }
+            100% { opacity: 1; transform: none; filter: none; }
+        }
+        .rise { animation: rise 1s cubic-bezier(.2, .7, .2, 1) both; animation-delay: var(--d, 0s); }
+
+        /* ------------------------------------------------------------
+           Sections
+        ------------------------------------------------------------ */
+        .section { padding-block: clamp(5rem, 10vw, 8.5rem); position: relative; }
+        .section-light { background: var(--alabaster); }
+        .section-paper { background: var(--paper); }
+        .section-dark  { background: var(--ink); color: var(--on-dark); isolation: isolate; overflow: hidden; }
+
+        h2 {
+            margin: 0 0 1.25rem;
+            font: 500 clamp(2rem, 4.2vw, 3.3rem)/1.12 var(--serif);
+            letter-spacing: -.01em; color: var(--ink);
+        }
+        h3 { font-family: var(--serif); font-weight: 500; }
+        .section-dark h2, .on-dark h2 { color: #F6F2E9; }
+        .lead { max-width: 34rem; margin: 0; font-size: 1.1rem; color: var(--muted); }
+        .section-dark .lead, .on-dark .lead { color: var(--on-dark-muted); }
+
+        .js .reveal {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity .9s ease, transform .9s cubic-bezier(.2, .7, .2, 1);
+            transition-delay: var(--d, 0s);
+        }
+        .js .reveal.in { opacity: 1; transform: none; }
+
+        /* ---- Method ---- */
+        .method-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .method-intro { position: sticky; top: 7rem; }
+        .method-intro .lead { margin-bottom: 1.75rem; }
+        .phases { list-style: none; margin: 0; padding: 0; }
+        .phases li {
+            display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem;
+            padding-block: 2.1rem; border-top: 1px solid var(--line);
+        }
+        .phases li:last-child { border-bottom: 1px solid var(--line); }
+        .phase-n { font: 500 2.4rem/1 var(--serif); color: var(--gold); }
+        .phases h3 { margin: 0 0 .5rem; font-size: 1.65rem; line-height: 1.2; color: var(--ink); }
+        .phases p { margin: 0; color: var(--muted); max-width: 32rem; }
+
+        .principles {
+            margin-top: clamp(3.5rem, 7vw, 5.5rem); padding-top: clamp(2rem, 4vw, 3rem);
+            border-top: 1px solid var(--ink);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.75rem, 4vw, 3.5rem);
+        }
+        .principles h3 { margin: 0 0 .6rem; font-size: 1.3rem; color: var(--ink); }
+        .principles p { margin: 0; color: var(--muted); font-size: .98rem; }
+
+        /* ---- Services ---- */
+        .glow { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; filter: blur(10px); }
+        .glow-a { width: 46rem; height: 46rem; left: -14rem; top: -10rem; background: radial-gradient(closest-side, rgba(217, 187, 139, .22), transparent); }
+        .glow-b { width: 52rem; height: 52rem; right: -18rem; bottom: -16rem; background: radial-gradient(closest-side, rgba(21, 48, 77, .95), transparent); }
+        .glow-c { width: 28rem; height: 28rem; left: 42%; top: 40%; background: radial-gradient(closest-side, rgba(169, 138, 83, .16), transparent); }
+
+        .section-head { max-width: 40rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
+        .card {
+            display: flex; flex-direction: column; padding: 2.4rem 2.1rem 2.1rem; border-radius: 22px;
+            background: linear-gradient(160deg, rgba(255, 255, 255, .10), rgba(255, 255, 255, .03));
+            border: 1px solid rgba(237, 233, 224, .15);
+            -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%);
+            box-shadow: 0 30px 60px -32px rgba(0, 0, 0, .7), inset 0 1px 0 rgba(255, 255, 255, .09);
+            transition: transform .5s cubic-bezier(.2, .7, .2, 1), border-color .4s, box-shadow .5s;
+        }
+        .card:hover {
+            transform: translateY(-6px); border-color: rgba(217, 187, 139, .55);
+            box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .75), 0 0 0 1px rgba(217, 187, 139, .12), inset 0 1px 0 rgba(255, 255, 255, .12);
+        }
+        .card-icon {
+            width: 3.4rem; height: 3.4rem; margin-bottom: 1.75rem; border-radius: 50%;
+            display: grid; place-items: center;
+            border: 1px solid rgba(217, 187, 139, .45); color: var(--champagne);
+        }
+        .card-icon svg { width: 24px; height: 24px; }
+        .card h3 { margin: 0 0 .9rem; font-size: 1.55rem; line-height: 1.22; color: #F6F2E9; }
+        .card > p { margin: 0 0 1.5rem; color: var(--on-dark-muted); font-size: .98rem; }
+        .card ul { list-style: none; margin: 0 0 2rem; padding: 1.25rem 0 0; border-top: 1px solid rgba(237, 233, 224, .12); }
+        .card li { position: relative; padding: .3rem 0 .3rem 1.5rem; font-size: .93rem; color: var(--on-dark); }
+        .card li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: .8rem; height: 1px; background: var(--champagne); }
+        .card .link-gold { margin-top: auto; align-self: flex-start; }
+
+        /* ---- Founder ---- */
+        .founder-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+        .portrait-wrap { position: relative; width: min(100%, 420px); margin-inline: auto; }
+        .portrait {
+            position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+            background: radial-gradient(circle at 30% 25%, #24425F 0%, var(--navy) 45%, var(--ink) 100%);
+            box-shadow: 0 0 0 8px var(--paper), 0 0 0 10px #CFE7F1, 0 50px 90px -45px rgba(14, 21, 29, .65);
+        }
+        .portrait .monogram {
+            position: absolute; inset: 0; display: grid; place-items: center;
+            font: 500 clamp(6rem, 16vw, 9rem)/1 var(--serif); color: var(--champagne); opacity: .9;
+        }
+        .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .portrait-spark { position: absolute; right: 4%; top: 2%; width: 3.2rem; height: 3.2rem; }
+        .founder-copy p { margin: 0 0 1.15rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+        .founder-copy p.big { font: 400 1.4rem/1.5 var(--serif); color: var(--ink); }
+        .background-list {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            margin: 2.25rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line);
+        }
+        .background-list dt { font: 500 1.05rem/1.3 var(--serif); color: var(--ink); margin-bottom: .3rem; }
+        .background-list dd { margin: 0; font-size: .9rem; color: var(--muted); line-height: 1.55; }
+
+        /* ---- Community ---- */
+        .community { background: linear-gradient(135deg, var(--navy) 0%, #0F2338 100%); color: var(--on-dark); }
+        .community-grid { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .community h2 { color: #F6F2E9; }
+        .community .lead { color: #BFC9D5; }
+        .give { padding-block: 1.9rem; border-top: 1px solid rgba(237, 233, 224, .18); }
+        .give:last-child { border-bottom: 1px solid rgba(237, 233, 224, .18); }
+        .give h3 { margin: 0 0 .5rem; font-size: 1.45rem; color: #F6F2E9; }
+        .give p { margin: 0 0 1rem; color: #BFC9D5; max-width: 30rem; }
+
+        /* ---- Booking ---- */
+        .book-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2.5rem, 7vw, 6rem); align-items: start; }
+        .assurances { list-style: none; margin: 2rem 0; padding: 0; }
+        .assurances li { position: relative; padding: .55rem 0 .55rem 1.75rem; color: var(--on-dark); }
+        .assurances li::before { content: ""; position: absolute; left: 0; top: 1.3em; width: .85rem; height: 1px; background: var(--champagne); }
+        .fineprint { font-size: .85rem; color: var(--on-dark-muted); max-width: 30rem; }
+
+        .form-panel {
+            padding: clamp(1.75rem, 4vw, 2.75rem); border-radius: 26px;
+            background: var(--alabaster); color: var(--text);
+            box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .8), inset 0 0 0 1px rgba(255, 255, 255, .6);
+        }
+        .form-panel h3 { margin: 0 0 1.5rem; font-size: 1.75rem; color: var(--ink); }
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+        .field { margin-bottom: 1.1rem; }
+        .field label { display: block; margin-bottom: .45rem; font-size: .88rem; font-weight: 500; color: var(--ink); }
+        .field input, .field select, .field textarea {
+            width: 100%; padding: .9rem 1rem; border-radius: 12px;
+            border: 1px solid #D6D0C3; background: #fff; color: var(--ink);
+            font: 400 .98rem/1.4 var(--sans);
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .field textarea { resize: vertical; min-height: 7rem; }
+        .field input::placeholder, .field textarea::placeholder { color: #8A929B; }
+        .field input:focus, .field select:focus, .field textarea:focus {
+            outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(169, 138, 83, .25);
+        }
+        .consent { display: flex; gap: .7rem; align-items: flex-start; margin: .4rem 0 1.5rem; font-size: .88rem; color: var(--muted); }
+        .consent input { margin-top: .25rem; accent-color: var(--gold-deep); }
+        .form-panel .btn { width: 100%; }
+        .form-status { min-height: 1.4rem; margin: 1rem 0 0; font-size: .9rem; color: var(--muted); }
+        .form-status.ok { color: #2F6B45; }
+        .form-status.err { color: #9A3B2E; }
+        .alt-book { margin: 1rem 0 0; text-align: center; font-size: .88rem; color: var(--muted); }
+
+        /* ---- Footer ---- */
+        .footer { background: #0A1017; color: var(--on-dark-muted); padding-top: clamp(3.5rem, 7vw, 5rem); }
+        .footer-grid { display: grid; grid-template-columns: 5fr 3fr 3fr; gap: 2.5rem; padding-bottom: 3rem; }
+        .footer .brand { margin-bottom: 1rem; }
+        .tagline { margin: 0 0 .75rem; font: italic 400 1.35rem/1.3 var(--serif); color: var(--champagne); }
+        .footer p.note { margin: 0; max-width: 24rem; font-size: .9rem; }
+        .footer h4 { margin: 0 0 1rem; font: 500 .95rem/1 var(--serif); color: var(--on-dark); }
+        .footer ul { list-style: none; margin: 0; padding: 0; }
+        .footer li { margin-bottom: .6rem; }
+        .footer a { text-decoration: none; font-size: .92rem; transition: color .3s; }
+        .footer a:hover { color: var(--champagne); }
+        .social { display: flex; gap: .75rem; }
+        .social a {
+            width: 2.6rem; height: 2.6rem; display: grid; place-items: center; border-radius: 50%;
+            border: 1px solid rgba(237, 233, 224, .2); color: var(--on-dark);
+            transition: border-color .3s, color .3s, transform .3s;
+        }
+        .social a:hover { border-color: var(--champagne); color: var(--champagne); transform: translateY(-2px); }
+        .social svg { width: 18px; height: 18px; }
+        .footer-bar {
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;
+            padding-block: 1.6rem; border-top: 1px solid rgba(237, 233, 224, .1); font-size: .85rem;
+        }
+        .footer-bar div { display: flex; gap: 1.5rem; }
+
+        /* ------------------------------------------------------------
+           Responsive
+        ------------------------------------------------------------ */
+        @media (max-width: 960px) {
+            .cards { grid-template-columns: 1fr; max-width: 34rem; }
+            .method-grid, .founder-grid, .community-grid, .book-grid { grid-template-columns: 1fr; }
+            .method-intro { position: static; }
+            .principles { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-grid > :first-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 880px) {
+            .menu-btn { display: inline-flex; }
+            .nav-links {
+                display: none; position: absolute; top: 5rem; left: 0; right: 0;
+                flex-direction: column; align-items: stretch; gap: 0;
+                padding: .5rem var(--gutter) 1.75rem;
+                background: rgba(14, 21, 29, .97);
+                -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+                border-bottom: 1px solid rgba(237, 233, 224, .1);
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a:not(.btn) { padding: 1rem 0; border-bottom: 1px solid rgba(237, 233, 224, .08); font-size: 1rem; }
+            .nav-links a:not(.btn)::after { display: none; }
+            .nav-links .btn { margin-top: 1.25rem; }
+        }
+        @media (max-width: 760px) {
+            .proof ul { grid-template-columns: 1fr 1fr; }
+            .spark { top: 9%; width: 52vw; opacity: .55; right: -6vw; }
+            .background-list { grid-template-columns: 1fr; }
+            .field-row { grid-template-columns: 1fr; gap: 0; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .js .reveal { opacity: 1; transform: none; }
+        }
+    
+        /* ------------------------------------------------------------
+           Questionnaire page
+        ------------------------------------------------------------ */
+        .nav.scrolled { background: rgba(14, 21, 29, .92); }
+        .progress { position: fixed; top: 5rem; left: 0; right: 0; height: 2px; z-index: 49; background: rgba(237, 233, 224, .08); }
+        .progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #EAD3A8, #B38F57); transition: width .4s ease; }
+
+        .q-head { padding-top: 10rem; padding-bottom: clamp(3.5rem, 7vw, 5.5rem); position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--on-dark); }
+        .q-head::before {
+            content: ""; position: absolute; inset: 0; z-index: -1;
+            background:
+                radial-gradient(50% 70% at 90% 10%, rgba(217, 187, 139, .16), transparent 70%),
+                radial-gradient(45% 60% at 0% 100%, rgba(21, 48, 77, .7), transparent 72%);
+        }
+        .eyebrow { margin: 0 0 1.25rem; font-size: .8rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--champagne); }
+        .q-head h1 { margin: 0 0 1.5rem; max-width: 18ch; font: 500 clamp(2.4rem, 5.6vw, 4.4rem)/1.06 var(--serif); letter-spacing: -.015em; color: #F6F2E9; }
+        .q-head .lead { max-width: 40rem; color: var(--on-dark-muted); font-weight: 300; }
+        .q-head .fineprint { margin-top: 1.5rem; }
+
+        .q-body { background: var(--alabaster); padding-block: clamp(3rem, 7vw, 5.5rem); }
+        .q-wrap { max-width: 50rem; }
+        .q-form { display: block; }
+
+        .q-group { margin: 0 0 clamp(2.5rem, 5vw, 4rem); padding: 0; border: 0; min-width: 0; }
+        .q-group > legend { padding: 0; width: 100%; float: left; margin-bottom: 1.75rem; }
+        .q-group > legend + * { clear: both; }
+        .q-title { display: grid; grid-template-columns: 4rem 1fr; align-items: baseline; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+        .q-num { font: 500 2.6rem/1 var(--serif); color: #9A7C45; }
+        .q-title h2 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.1rem); }
+
+        .q { margin: 0 0 1.9rem; padding-left: 4rem; }
+        .q > label, .q > .q-legend { display: block; margin: 0 0 .35rem; font: 500 1.08rem/1.45 var(--serif); color: var(--ink); }
+        fieldset.q { border: 0; min-width: 0; margin-inline: 0; padding-top: 0; padding-right: 0; }
+        .q-legend { padding: 0; float: left; width: 100%; }
+        .q-legend + * { clear: both; }
+        .hint { display: block; margin: 0 0 .7rem; font-size: .9rem; color: var(--muted); }
+        .q textarea, .q-contact input {
+            width: 100%; padding: .9rem 1rem; border-radius: 12px;
+            border: 1px solid #8A8578; background: #fff; color: var(--ink);
+            font: 400 1rem/1.5 var(--sans);
+            transition: border-color .25s, box-shadow .25s;
+        }
+        .q textarea { resize: vertical; min-height: 6.5rem; }
+        .q textarea:focus, .q-contact input:focus { outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(169, 138, 83, .25); }
+        .q-contact input::placeholder, .q textarea::placeholder { color: #6E7782; }
+
+        .q-contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin: 0 0 clamp(2.5rem, 5vw, 3.5rem); padding: clamp(1.25rem, 3vw, 1.75rem); border-radius: 22px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); }
+        .q-contact label { display: block; margin-bottom: .45rem; font-size: .88rem; font-weight: 500; color: var(--ink); }
+
+        .scale { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: .45rem; margin: .35rem 0 0; }
+        .scale input { position: absolute; opacity: 0; pointer-events: none; }
+        .scale label {
+            display: grid; place-items: center; aspect-ratio: 1; min-height: 2.6rem; border-radius: 999px; cursor: pointer;
+            border: 1px solid #8A8578; background: #fff; color: var(--ink);
+            font: 500 .95rem/1 var(--sans);
+            transition: background .25s, border-color .25s, color .25s, transform .25s;
+        }
+        .scale label:hover { border-color: var(--gold-deep); transform: translateY(-1px); }
+        .scale input:checked + label { background: linear-gradient(120deg, #EAD3A8 0%, #CFAE74 45%, #B38F57 100%); border-color: #B38F57; }
+        .scale input:focus-visible + label { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+        .scale-ends { display: flex; justify-content: space-between; margin: .55rem 0 1.1rem; font-size: .82rem; color: var(--muted); }
+
+        .q-submit { padding: clamp(1.5rem, 4vw, 2.25rem); border-radius: 26px; background: var(--ink); color: var(--on-dark); }
+        .q-submit p { margin: 0 0 1.25rem; color: var(--on-dark-muted); }
+        .q-submit .btn { width: 100%; }
+        .q-submit .form-status { color: var(--on-dark-muted); }
+        .q-submit .form-status.ok { color: #8FD1A8; }
+        .q-submit .form-status.err { color: #F0A89C; }
+        .q-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; margin-top: 1rem; font-size: .88rem; color: var(--on-dark-muted); }
+        .q-actions button { background: none; border: 0; padding: 0; font: inherit; color: var(--champagne); cursor: pointer; border-bottom: 1px solid currentColor; }
+        .q-actions button:hover { color: var(--on-dark); }
+
+        @media (max-width: 640px) {
+            .q-title { grid-template-columns: 3rem 1fr; }
+            .q { padding-left: 0; }
+            .q-contact { grid-template-columns: 1fr; gap: 0; }
+            .q-contact > div { margin-bottom: 1rem; }
+            .scale { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            .scale label { aspect-ratio: auto; min-height: 3rem; }
+        }
+        @media print {
+            .nav, .progress, .footer, .q-submit, .skip { display: none !important; }
+            body, .q-body { background: #fff; }
+            .q-head { background: #fff; color: #000; padding-top: 1rem; }
+            .q-head::before { display: none; }
+            .q-head h1, .q-head .lead, .eyebrow { color: #000; }
+            .q textarea { min-height: 7rem; border-color: #999; }
+            .q-group { break-inside: avoid-page; }
+        }
+    
+        /* ---- Resources page ---- */
+        .nav-links a[aria-current="page"] { color: var(--on-dark); }
+        .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+        .pills { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+        .pill { padding: .65rem 1.25rem; border-radius: 999px; border: 1px solid rgba(217, 187, 139, .45); color: var(--on-dark); font-size: .9rem; text-decoration: none; transition: background .3s, border-color .3s, color .3s; }
+        .pill:hover { background: rgba(217, 187, 139, .14); border-color: var(--champagne); color: #F6F2E9; }
+
+        .card .ask { margin: 0; padding-top: 1.25rem; border-top: 1px solid rgba(237, 233, 224, .12); font-size: .93rem; color: var(--on-dark); }
+        .card .ask b { display: block; margin-bottom: .25rem; font: 500 .74rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--champagne); }
+        .res-intro { max-width: 40rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+        .res-intro .eyebrow { margin-bottom: 1rem; }
+
+        .books { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(2rem, 6vw, 5rem); margin: 0; padding: 0; list-style: none; }
+        .books li { padding-block: 1.6rem; border-top: 1px solid var(--line); }
+        .books li:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+        .books h3 { margin: 0 0 .15rem; font-size: 1.4rem; line-height: 1.25; color: var(--ink); }
+        .books .by { margin: 0 0 .5rem; font-size: .88rem; color: var(--gold-deep); font-weight: 500; }
+        .books p:last-child { margin: 0; color: var(--muted); font-size: .98rem; }
+
+        .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .dl { padding: 2rem 1.9rem; border-radius: 22px; background: var(--alabaster); box-shadow: inset 0 0 0 1px var(--line); }
+        .dl-icon { width: 3rem; height: 3rem; margin-bottom: 1.25rem; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold-deep); }
+        .dl-icon svg { width: 22px; height: 22px; }
+        .dl h3 { margin: 0 0 .5rem; font-size: 1.3rem; color: var(--ink); }
+        .dl p { margin: 0 0 1.25rem; color: var(--muted); font-size: .96rem; }
+        .soon { display: inline-block; padding: .3rem .85rem; border-radius: 999px; border: 1px solid var(--gold); font-size: .74rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-deep); }
+
+        .faq { max-width: 50rem; margin-inline: auto; }
+        .faq details { border-top: 1px solid var(--line); }
+        .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+        .faq summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.4rem 0; cursor: pointer; list-style: none; font: 500 1.2rem/1.35 var(--serif); color: var(--ink); }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after { content: "+"; flex: none; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--gold); font: 400 1.2rem/1 var(--sans); color: var(--gold-deep); transition: transform .3s, background .3s; }
+        .faq details[open] summary::after { content: "\2212"; background: rgba(217, 187, 139, .3); }
+        .faq details p { margin: 0 0 1.5rem; max-width: 42rem; color: var(--muted); }
+        .faq a, .res-note a { color: var(--gold-deep); font-weight: 500; }
+        .crisis { max-width: 50rem; margin: 2.5rem auto 0; padding: 1.25rem 1.5rem; border-radius: 16px; background: var(--alabaster); box-shadow: inset 0 0 0 1px var(--line); font-size: .95rem; color: var(--muted); }
+        .crisis strong { color: var(--ink); }
+        .res-note { margin: 2.5rem auto 0; max-width: 50rem; font-size: .95rem; color: var(--muted); }
+
+        .cta-band { text-align: center; }
+        .cta-band .lead { margin-inline: auto; margin-bottom: 2rem; }
+        .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.25rem 2rem; }
+
+        @media (max-width: 960px) {
+            .books, .dl-grid { grid-template-columns: 1fr; }
+            .books li:nth-last-child(2) { border-bottom: 0; }
+            .dl-grid { max-width: 34rem; }
+        }
     </style>
 </head>
-<body class="bg-softGray text-slateBlue-800 antialiased selection:bg-slateBlue-500 selection:text-white">
+<body>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slateBlue-100 shadow-sm" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <a href="index.html" class="flex-shrink-0 flex items-center">
-                    <span class="font-serif text-2xl font-bold tracking-tight text-slateBlue-800">
-                        Iskra <span class="text-slateBlue-500 font-normal text-xl">Coaching</span>
-                    </span>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#home" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">Home</a>
-                    <a href="index.html#about" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">About</a>
-                    <a href="index.html#services" class="text-slateBlue-600 hover:text-slateBlue-900 font-medium transition-colors">Services</a>
-                    <a href="resources.html" class="text-slateBlue-900 font-semibold border-b-2 border-slateBlue-700 pb-0.5">Resources</a>
-                    <a href="index.html#book" class="bg-slateBlue-700 hover:bg-slateBlue-800 text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                        Book a Session
-                    </a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" aria-label="Toggle menu" class="text-slateBlue-600 hover:text-slateBlue-900 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slateBlue-100 absolute w-full shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html#home" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">Home</a>
-                <a href="index.html#about" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">About</a>
-                <a href="index.html#services" class="block px-3 py-2 text-slateBlue-600 hover:bg-slateBlue-50 hover:text-slateBlue-900 rounded-md font-medium">Services</a>
-                <a href="resources.html" class="block px-3 py-2 text-slateBlue-900 bg-slateBlue-50 rounded-md font-semibold">Resources</a>
-                <a href="index.html#book" class="block px-3 py-2 mt-4 bg-slateBlue-700 text-white text-center rounded-md font-medium">Book a Session</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="relative pt-32 pb-16 lg:pt-44 lg:pb-20 bg-white overflow-hidden">
-        <div class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 opacity-10 pointer-events-none">
-            <svg width="500" height="500" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fill="#334155" d="M45.7,-76.4C58.9,-69.3,69.2,-55.4,78.2,-41.2C87.2,-27,94.9,-13.5,93.6,-0.7C92.2,12.1,81.9,24.2,72.4,36.1C62.9,48,54.2,59.6,42.4,66.5C30.6,73.4,15.3,75.6,1.2,73.5C-12.9,71.5,-25.8,65.3,-38.3,58.7C-50.8,52.1,-62.9,45.1,-70.6,34.4C-78.3,23.7,-81.6,9.3,-80.7,-4.8C-79.8,-18.8,-74.7,-32.5,-66,-43.3C-57.3,-54.1,-45,-62,-32.3,-68.8C-19.6,-75.6,-9.8,-81.4,2.9,-86.3C15.5,-91.3,31,-95.4,45.7,-76.4Z" transform="translate(100 100)" />
-            </svg>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <h1 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3 font-sans">Resources</h1>
-            <h2 class="text-4xl md:text-6xl font-serif font-bold text-slateBlue-900 leading-tight mb-6 max-w-3xl">
-                Tools for <span class="italic text-slateBlue-600">thoughtful growth.</span>
-            </h2>
-            <p class="text-lg md:text-xl text-slateBlue-600 max-w-2xl leading-relaxed mb-8">
-                Reflection exercises, a curated reading list, and answers to common questions about coaching, whether or not we ever work together.
-            </p>
-            <div class="flex flex-wrap gap-3 text-sm font-medium">
-                <a href="#exercises" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Reflection Exercises</a>
-                <a href="#reading" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Reading List</a>
-                <a href="#downloads" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">Downloads</a>
-                <a href="#faq" class="px-4 py-2 rounded-full bg-slateBlue-50 border border-slateBlue-100 text-slateBlue-700 hover:bg-slateBlue-100 transition-colors">FAQ</a>
-            </div>
+    <header class="nav scrolled" id="nav">
+        <div class="wrap nav-inner">
+            <a href="index.html#home" class="brand" aria-label="Iskra Coaching, home">
+                <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C53 36 64 47 96 50 64 53 53 64 50 96 47 64 36 53 4 50 36 47 47 36 50 4Z" fill="#D9BB8B"/></svg>
+                Iskra <span>Coaching</span>
+            </a>
+            <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+            </button>
+            <nav class="nav-links" id="navLinks" aria-label="Primary">
+                <a href="index.html#method">Method</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#about">Founder</a>
+                <a href="index.html#community">Community</a>
+                <a href="resources.html" aria-current="page">Resources</a>
+                <a href="index.html#book" class="btn btn-gold btn-sm">Schedule a Session</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Reflection exercises -->
-    <section id="exercises" class="py-20 bg-softGray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Try It Yourself</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Reflection Exercises</h3>
-                <p class="text-lg text-slateBlue-600">Set aside 10 to 15 minutes, grab a notebook, and pick one.</p>
+    <main id="main">
+        <section class="q-head">
+            <div class="wrap">
+                <p class="eyebrow rise">Resources</p>
+                <h1 class="rise" style="--d:.1s">Tools for thoughtful growth.</h1>
+                <p class="lead rise" style="--d:.2s">Reflection exercises, a curated reading list, and answers to common questions about coaching, whether or not we ever work together.</p>
+                <nav class="pills rise" style="--d:.3s" aria-label="On this page">
+                    <a class="pill" href="#exercises">Reflection Exercises</a>
+                    <a class="pill" href="#reading">Reading List</a>
+                    <a class="pill" href="#downloads">Downloads</a>
+                    <a class="pill" href="#faq">FAQ</a>
+                </nav>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-circle-notch text-xl"></i></div>
-                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">The Wheel of Life</h4>
-                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">A classic coaching check-in. Draw a circle divided into 8 slices: career, finances, health, relationships, fun, growth, environment, and purpose. Rate your satisfaction in each from 1 to 10 and shade it in.</p>
-                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> Which one slice, if it moved up two points, would change the rest?</p>
-                </article>
-                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-compass text-xl"></i></div>
-                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">Values Sort</h4>
-                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">Write down 15 values that matter to you (e.g. autonomy, security, creativity, service). Narrow to 5, then to your top 3. Notice what you had to let go of.</p>
-                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> Where in my current week am I honoring these? Where am I not?</p>
-                </article>
-                <article class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-slateBlue-50 flex items-center justify-center text-slateBlue-600 mb-5"><i class="fas fa-road text-xl"></i></div>
-                    <h4 class="text-xl font-bold font-serif text-slateBlue-900 mb-2">Three Futures</h4>
-                    <p class="text-slateBlue-600 text-sm leading-relaxed mb-4">Sketch three versions of your life five years from now: the natural path, a very different path, and a path you would choose if money and approval were no object.</p>
-                    <p class="text-sm text-slateBlue-500"><span class="font-semibold text-slateBlue-700">Ask yourself:</span> What is the smallest step toward the one that excites me most?</p>
-                </article>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Reading list -->
-    <section id="reading" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Recommended</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Reading List</h3>
-                <p class="text-lg text-slateBlue-600">A starting shelf for career change, habits, and self-understanding. <!-- Edit this list to reflect your own favorites. --></p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Designing Your Life</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">Bill Burnett &amp; Dave Evans</p>
-                        <p class="text-sm text-slateBlue-600">Design-thinking tools for prototyping career and life changes instead of over-planning them.</p>
-                    </div>
+        <section class="section section-dark" id="exercises">
+            <div class="glow glow-a" aria-hidden="true"></div>
+            <div class="glow glow-b" aria-hidden="true"></div>
+            <div class="wrap">
+                <div class="res-intro reveal">
+                    <p class="eyebrow">Try it yourself</p>
+                    <h2>Reflection Exercises</h2>
+                    <p class="lead">Set aside 10 to 15 minutes, grab a notebook, and pick one.</p>
                 </div>
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Atomic Habits</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">James Clear</p>
-                        <p class="text-sm text-slateBlue-600">A practical framework for building habits that stick, one small change at a time.</p>
-                    </div>
-                </div>
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Transitions</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">William Bridges</p>
-                        <p class="text-sm text-slateBlue-600">Why endings, in-between periods, and new beginnings each feel different, and how to move through them.</p>
-                    </div>
-                </div>
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Mindset</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">Carol S. Dweck</p>
-                        <p class="text-sm text-slateBlue-600">How beliefs about ability shape learning, resilience, and achievement.</p>
-                    </div>
-                </div>
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Emotional Agility</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">Susan David</p>
-                        <p class="text-sm text-slateBlue-600">A values-led approach to handling difficult thoughts and emotions without being run by them.</p>
-                    </div>
-                </div>
-                <div class="flex gap-5 p-6 rounded-2xl bg-softGray border border-slateBlue-100">
-                    <div class="w-11 h-11 flex-shrink-0 rounded-lg bg-slateBlue-700 text-white flex items-center justify-center"><i class="fas fa-book"></i></div>
-                    <div>
-                        <h4 class="font-serif font-bold text-lg text-slateBlue-900">Essentialism</h4>
-                        <p class="text-sm text-slateBlue-500 mb-1">Greg McKeown</p>
-                        <p class="text-sm text-slateBlue-600">On doing fewer things, better, and saying no to what does not matter most.</p>
-                    </div>
+                <div class="cards">
+                    <article class="card reveal">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"/></svg></div>
+                        <h3>The Wheel of Life</h3>
+                        <p>A classic coaching check-in. Draw a circle divided into 8 slices: career, finances, health, relationships, fun, growth, environment, and purpose. Rate your satisfaction in each from 1 to 10 and shade it in.</p>
+                        <p class="ask"><b>Ask yourself</b>Which one slice, if it moved up two points, would change the rest?</p>
+                    </article>
+                    <article class="card reveal" style="--d:.1s">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></div>
+                        <h3>Values Sort</h3>
+                        <p>Write down 15 values that matter to you (e.g. autonomy, security, creativity, service). Narrow to 5, then to your top 3. Notice what you had to let go of.</p>
+                        <p class="ask"><b>Ask yourself</b>Where in my current week am I honoring these? Where am I not?</p>
+                    </article>
+                    <article class="card reveal" style="--d:.2s">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7M12 14c0-4-6-4-6-9M12 14c0-4 6-4 6-9M12 14V4"/></svg></div>
+                        <h3>Three Futures</h3>
+                        <p>Sketch three versions of your life five years from now: the natural path, a very different path, and a path you would choose if money and approval were no object.</p>
+                        <p class="ask"><b>Ask yourself</b>What is the smallest step toward the one that excites me most?</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Downloads -->
-    <section id="downloads" class="py-20 bg-softGray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Free Downloads</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900 mb-4">Worksheets &amp; Guides</h3>
+        <section class="section section-light" id="reading">
+            <div class="wrap">
+                <div class="res-intro reveal">
+                    <p class="eyebrow" style="color: var(--gold-deep)">Recommended</p>
+                    <h2>Reading List</h2>
+                    <p class="lead">A starting shelf for career change, habits, and self-understanding.</p>
+                </div>
+                <ul class="books">
+                    <li class="reveal" style="--d:0.00s"><h3>Designing Your Life</h3><p class="by">Bill Burnett &amp; Dave Evans</p><p>Design-thinking tools for prototyping career and life changes instead of over-planning them.</p></li>
+                    <li class="reveal" style="--d:0.05s"><h3>Atomic Habits</h3><p class="by">James Clear</p><p>A practical framework for building habits that stick, one small change at a time.</p></li>
+                    <li class="reveal" style="--d:0.00s"><h3>Transitions</h3><p class="by">William Bridges</p><p>Why endings, in-between periods, and new beginnings each feel different, and how to move through them.</p></li>
+                    <li class="reveal" style="--d:0.05s"><h3>Mindset</h3><p class="by">Carol S. Dweck</p><p>How beliefs about ability shape learning, resilience, and achievement.</p></li>
+                    <li class="reveal" style="--d:0.00s"><h3>Emotional Agility</h3><p class="by">Susan David</p><p>A values-led approach to handling difficult thoughts and emotions without being run by them.</p></li>
+                    <li class="reveal" style="--d:0.05s"><h3>Essentialism</h3><p class="by">Greg McKeown</p><p>On doing fewer things, better, and saying no to what does not matter most.</p></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section section-paper" id="downloads">
+            <div class="wrap">
+                <div class="res-intro reveal">
+                    <p class="eyebrow" style="color: var(--gold-deep)">Free downloads</p>
+                    <h2>Worksheets &amp; Guides</h2>
+                    <p class="lead">Printable companions to the exercises. They are on their way.</p>
+                </div>
                 <!--
                     HOW TO ADD A DOWNLOAD: put your PDF in a "downloads" folder in the repo, then replace the
-                    "Coming soon" span with:
-                    <a href="downloads/wheel-of-life.pdf" download class="...">Download PDF</a>
+                    <span class="soon">Coming soon</span> in that card with:
+                    <a href="downloads/wheel-of-life.pdf" download class="link-gold">Download PDF</a>
                 -->
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
-                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
-                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Wheel of Life Worksheet</h4>
-                    <p class="text-sm text-slateBlue-600 mb-5">A printable version of the exercise above.</p>
-                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+                <div class="dl-grid">
+                    <div class="dl reveal" style="--d:0.00s">
+                        <div class="dl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div>
+                        <h3>Wheel of Life Worksheet</h3>
+                        <p>A printable version of the exercise above.</p>
+                        <span class="soon">Coming soon</span>
+                    </div>
+                    <div class="dl reveal" style="--d:0.08s">
+                        <div class="dl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div>
+                        <h3>Career Transition Checklist</h3>
+                        <p>A step-by-step guide for planning a job or industry change.</p>
+                        <span class="soon">Coming soon</span>
+                    </div>
+                    <div class="dl reveal" style="--d:0.16s">
+                        <div class="dl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div>
+                        <h3>Weekly Reflection Template</h3>
+                        <p>One page to review wins, lessons, and next steps.</p>
+                        <span class="soon">Coming soon</span>
+                    </div>
                 </div>
-                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
-                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
-                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Career Transition Checklist</h4>
-                    <p class="text-sm text-slateBlue-600 mb-5">A step-by-step guide for planning a job or industry change.</p>
-                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+            </div>
+        </section>
+
+        <section class="section section-light" id="faq">
+            <div class="wrap">
+                <div class="res-intro reveal" style="margin-inline:auto; text-align:center">
+                    <p class="eyebrow" style="color: var(--gold-deep)">Good to know</p>
+                    <h2>Frequently Asked Questions</h2>
                 </div>
-                <div class="bg-white rounded-2xl p-8 border border-slateBlue-100 shadow-sm">
-                    <i class="fas fa-file-pdf text-3xl text-slateBlue-500 mb-4"></i>
-                    <h4 class="font-serif font-bold text-lg text-slateBlue-900 mb-2">Weekly Reflection Template</h4>
-                    <p class="text-sm text-slateBlue-600 mb-5">One page to review wins, lessons, and next steps.</p>
-                    <span class="inline-block text-xs font-semibold uppercase tracking-wide text-slateBlue-500 bg-slateBlue-50 border border-slateBlue-100 rounded-full px-3 py-1">Coming soon</span>
+                <div class="faq reveal">
+                    <details>
+                        <summary>What is the difference between coaching and therapy?</summary>
+                        <p>Coaching is forward-looking and goal-oriented: it helps you clarify what you want and take action. Therapy addresses mental health conditions and healing from past experiences. Coaching is not a substitute for therapy or medical care, and I may suggest working with a licensed professional if that would serve you better.</p>
+                    </details>
+                    <details>
+                        <summary>What happens in a discovery session?</summary>
+                        <p>It is a relaxed conversation about where you are, what you want to change, and how coaching might help. There is no pressure to commit. It is also a chance for both of us to see whether we are a good fit. Beforehand, you can complete the <a href="questionnaire.html">pre-coaching questionnaire</a> so we make the most of our time.</p>
+                    </details>
+                    <details>
+                        <summary>How long does coaching last and how often do we meet?</summary>
+                        <p>The rhythm depends on your goals. We will agree on a structure together during onboarding.</p>
+                    </details>
+                    <details>
+                        <summary>Is what I share confidential?</summary>
+                        <p>Yes. Confidentiality is a core part of ICF ethical standards, and the limited exceptions are set out in the <a href="terms.html#confidentiality">Terms of Service</a>. We will review them together before we begin.</p>
+                    </details>
+                    <details>
+                        <summary>How do the pro-bono and peer exchange options work?</summary>
+                        <p>A limited number of pro-bono slots are offered each month to emerging leaders, and I am open to peer coaching exchanges with fellow coaches. Choose the matching option in the <a href="index.html#book">inquiry form</a> and tell me a little about yourself.</p>
+                    </details>
+                </div>
+                <p class="crisis reveal"><strong>If you are in crisis:</strong> coaching is not an emergency service. In the U.S. you can call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) at any time, or call 911 in an emergency.</p>
+                <p class="res-note reveal">The International Coaching Federation publishes the competencies and ethics that guide professional coaching: <a href="https://coachingfederation.org" target="_blank" rel="noopener noreferrer">coachingfederation.org</a>.</p>
+            </div>
+        </section>
+
+        <section class="section community cta-band">
+            <div class="wrap">
+                <div class="reveal">
+                    <h2>Ready for a conversation?</h2>
+                    <p class="lead">Reading is a great start. Working through it with a partner is even better.</p>
+                    <div class="cta-actions">
+                        <a href="index.html#book" class="btn btn-gold">Schedule a Discovery Session</a>
+                        <a href="questionnaire.html" class="link-quiet">Already booked? Complete the questionnaire</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- FAQ -->
-    <section id="faq" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-sm font-bold tracking-widest text-slateBlue-500 uppercase mb-3">Good to Know</h2>
-                <h3 class="text-3xl md:text-4xl font-serif font-bold text-slateBlue-900">Frequently Asked Questions</h3>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div>
+                    <a href="index.html#home" class="brand" aria-label="Iskra Coaching, home">
+                        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4C53 36 64 47 96 50 64 53 53 64 50 96 47 64 36 53 4 50 36 47 47 36 50 4Z" fill="#D9BB8B"/></svg>
+                        Iskra <span>Coaching</span>
+                    </a>
+                    <p class="tagline">Focus. Plan. Results.</p>
+                    <p class="note">Structured, ICF-aligned coaching for career transitions, goal setting, and personal growth.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html#method">Method</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#about">Founder</a></li>
+                        <li><a href="index.html#community">Community</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="questionnaire.html">Client Questionnaire</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="space-y-4">
-                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
-                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
-                        What is the difference between coaching and therapy?
-                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
-                    </summary>
-                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Coaching is forward-looking and goal-oriented: it helps you clarify what you want and take action. Therapy addresses mental health conditions and healing from past experiences. Coaching is not a substitute for therapy or medical care, and I may suggest working with a licensed professional if that would serve you better.</p>
-                </details>
-                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
-                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
-                        What happens in a discovery call?
-                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
-                    </summary>
-                    <p class="mt-4 text-slateBlue-600 leading-relaxed">It is a relaxed conversation about where you are, what you want to change, and how coaching might help. There is no pressure to commit. It is also a chance for both of us to see whether we are a good fit.</p>
-                </details>
-                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
-                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
-                        How long does coaching last and how often do we meet?
-                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
-                    </summary>
-                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Many clients meet every two weeks for three to six months, but the rhythm depends on your goals. We will agree on a structure together during onboarding. <!-- Update with your actual packages. --></p>
-                </details>
-                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
-                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
-                        Is what I share confidential?
-                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
-                    </summary>
-                    <p class="mt-4 text-slateBlue-600 leading-relaxed">Yes. Confidentiality is a core part of ICF ethical standards. We will review the agreement, including its limited exceptions, before we begin.</p>
-                </details>
-                <details class="group bg-softGray rounded-xl border border-slateBlue-100 p-6">
-                    <summary class="flex justify-between items-center font-semibold text-slateBlue-900">
-                        How do the pro-bono and peer exchange options work?
-                        <i class="fas fa-chevron-down chev text-slateBlue-500 text-sm transition-transform"></i>
-                    </summary>
-                    <p class="mt-4 text-slateBlue-600 leading-relaxed">A limited number of pro-bono slots are offered each month to emerging leaders, and I am open to peer coaching exchanges with fellow ICF-certified coaches. Choose the matching option in the <a href="index.html#book" class="underline text-slateBlue-700 font-medium">inquiry form</a> and tell me a little about yourself.</p>
-                </details>
-            </div>
-
-            <div class="mt-12 rounded-xl bg-slateBlue-50 border border-slateBlue-100 p-6 text-sm text-slateBlue-600 leading-relaxed">
-                <i class="fas fa-circle-info text-slateBlue-500 mr-2"></i>
-                <strong class="text-slateBlue-800">If you are in crisis:</strong> coaching is not an emergency service. In the U.S. you can call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline) at any time, or call 911 in an emergency.
-            </div>
-        </div>
-    </section>
-
-    <!-- Learn more -->
-    <section class="py-16 bg-softGray">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 class="text-2xl font-serif font-bold text-slateBlue-900 mb-3">Learn more about coaching standards</h3>
-            <p class="text-slateBlue-600 mb-6">The International Coaching Federation publishes the competencies and ethics that guide professional coaching.</p>
-            <a href="https://coachingfederation.org" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-slateBlue-700 font-medium underline hover:text-slateBlue-900">
-                coachingfederation.org <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-20 bg-slateBlue-900 text-white text-center">
-        <div class="max-w-3xl mx-auto px-4">
-            <h3 class="text-3xl md:text-4xl font-serif font-bold mb-4">Ready for a conversation?</h3>
-            <p class="text-slateBlue-100 text-lg mb-8">Reading is a great start. Working through it with a partner is even better.</p>
-            <a href="index.html#book" class="inline-block bg-white text-slateBlue-900 hover:bg-slateBlue-100 px-8 py-4 rounded-full font-medium text-lg transition-all shadow-lg">Book a Consultation</a>
-        </div>
-    </section>
-
-    <footer class="bg-slateBlue-900 border-t border-slateBlue-800 text-slateBlue-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <span class="font-serif text-xl font-bold tracking-tight text-white">Iskra <span class="text-slateBlue-500 font-normal">Coaching</span></span>
-                <p class="mt-2 text-sm">Empowering individuals through professional coaching.</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                <a href="#" aria-label="Twitter" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
-                <a href="#" aria-label="Email" class="hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slateBlue-800 text-sm text-center md:text-left flex flex-col md:flex-row justify-between">
-            <p>&copy; <span id="year">2026</span> Iskra Coaching. All rights reserved.</p>
-            <div class="space-x-4 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white">Privacy Policy</a>
-                <a href="#" class="hover:text-white">Terms of Service</a>
+            <div class="footer-bar">
+                <span>&copy; <span id="year">2026</span> Iskra Coaching. All rights reserved.</span>
+                <div>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-        menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
-        document.getElementById('year').textContent = new Date().getFullYear();
+        (function () {
+            var btn = document.getElementById('menuBtn');
+            var links = document.getElementById('navLinks');
+            btn.addEventListener('click', function () {
+                var open = !links.classList.contains('open');
+                links.classList.toggle('open', open);
+                btn.setAttribute('aria-expanded', String(open));
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            });
+            var items = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -4% 0px' });
+                items.forEach(function (el) { io.observe(el); });
+            } else {
+                items.forEach(function (el) { el.classList.add('in'); });
+            }
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
     </script>
 </body>
 </html>
