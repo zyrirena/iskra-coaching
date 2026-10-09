@@ -530,6 +530,13 @@
         .dl h3 { margin: 0 0 .5rem; font-size: 1.3rem; color: var(--ink); }
         .dl p { margin: 0 0 1.25rem; color: var(--muted); font-size: .96rem; }
         .soon { display: inline-block; padding: .3rem .85rem; border-radius: 999px; border: 1px solid var(--gold); font-size: .74rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gold-deep); }
+        .dl-feature { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; margin-top: 1.5rem; padding: 2.25rem 2.25rem; border-radius: 22px; background: var(--ink); color: var(--on-dark); }
+        .dl-feature .eyebrow { margin: 0 0 .6rem; }
+        .dl-feature h3 { margin: 0 0 .5rem; font-size: clamp(1.4rem, 2.4vw, 1.8rem); color: #F6F2E9; }
+        .dl-feature p { margin: 0; max-width: 36rem; font-size: .98rem; color: var(--on-dark); opacity: .85; }
+        .dl-feature .acts { display: flex; flex-direction: column; gap: .9rem; align-items: flex-start; }
+        .dl-feature .link-gold { color: var(--champagne); }
+        .dl-feature .soon { border-color: var(--champagne); color: var(--champagne); }
 
         .faq { max-width: 50rem; margin-inline: auto; }
         .faq details { border-top: 1px solid var(--line); }
@@ -550,6 +557,7 @@
 
         @media (max-width: 960px) {
             .books, .dl-grid { grid-template-columns: 1fr; }
+            .dl-feature { grid-template-columns: 1fr; padding: 1.75rem 1.5rem; }
             .books li:nth-last-child(2) { border-bottom: 0; }
             .dl-grid { max-width: 34rem; }
         }
@@ -673,6 +681,22 @@
                         <h3>Weekly Reflection Template</h3>
                         <p>One page to review wins, lessons, and next steps.</p>
                         <a href="downloads/weekly-reflection-template.pdf" download class="link-gold">Download PDF</a>
+                    </div>
+                </div>
+
+                <div class="dl-feature reveal">
+                    <div>
+                        <p class="eyebrow" style="color: var(--champagne)">Free preview</p>
+                        <h3>The 52-Week Business Planner</h3>
+                        <p>A week-by-week agenda for first-time business builders, with a real calendar for a real life. Download a free 20-page preview with two complete weeks, then get the full printed planner on Amazon.</p>
+                    </div>
+                    <div class="acts">
+                        <a href="downloads/iskra-52-week-planner-free-preview.pdf" download class="link-gold">Download free preview (PDF)</a>
+                        <!--
+                            AMAZON LINK: when the listing is live, replace the "Coming soon" label below with:
+                            <a href="PASTE-YOUR-AMAZON-LINK-HERE" target="_blank" rel="noopener" class="link-gold">Get the printed planner on Amazon</a>
+                        -->
+                        <span class="soon">Coming soon on Amazon</span>
                     </div>
                 </div>
             </div>
