@@ -538,6 +538,8 @@
         .dl-feature .link-gold { color: var(--champagne); }
         .dl-feature .soon { border-color: var(--champagne); color: var(--champagne); }
         .dl-feature + .dl-feature { margin-top: 1rem; }
+        .dl-feature.has-img { grid-template-columns: auto 1fr auto; }
+        .dl-cover { display: block; width: 104px; height: auto; border-radius: 6px; box-shadow: 0 8px 22px rgba(0,0,0,.45); }
 
         .faq { max-width: 50rem; margin-inline: auto; }
         .faq details { border-top: 1px solid var(--line); }
@@ -559,6 +561,9 @@
         @media (max-width: 960px) {
             .books, .dl-grid { grid-template-columns: 1fr; }
             .dl-feature { grid-template-columns: 1fr; padding: 1.75rem 1.5rem; }
+            .dl-feature.has-img { grid-template-columns: 84px 1fr; gap: 1.25rem; }
+            .dl-feature.has-img .acts { grid-column: 1 / -1; }
+            .dl-cover { width: 84px; }
             .books li:nth-last-child(2) { border-bottom: 0; }
             .dl-grid { max-width: 34rem; }
         }
@@ -706,6 +711,30 @@
                     </div>
                     <div class="acts">
                         <a href="https://www.amazon.com/dp/B0HMMDQZ82" target="_blank" rel="noopener" class="link-gold">Get it on Amazon</a>
+                    </div>
+                </div>
+
+                <div class="dl-feature has-img reveal">
+                    <img class="dl-cover" src="images/mdmgmp-cover-en.jpg" alt="Front cover of My Day, My Goals, My Peace, a women's daily planner, wellness tracker and coloring book" width="104" height="161" loading="lazy">
+                    <div>
+                        <p class="eyebrow" style="color: var(--champagne)">Available now</p>
+                        <h3 translate="no">My Day, My Goals, My Peace</h3>
+                        <p>A women&rsquo;s daily planner, wellness tracker and coloring book. An undated 26-week planner with wellness trackers and 31 coloring pages, so you can begin whenever you are ready. Available on Amazon.</p>
+                    </div>
+                    <div class="acts">
+                        <a href="https://www.amazon.com/dp/B0HPCQ7Y5K" target="_blank" rel="noopener" class="link-gold">Get it on Amazon</a>
+                    </div>
+                </div>
+
+                <div class="dl-feature has-img reveal">
+                    <img class="dl-cover" src="images/mdmgmp-cover-pl.jpg" alt="Okładka planera Mój dzień, moje cele, spokój" width="104" height="161" loading="lazy">
+                    <div>
+                        <p class="eyebrow" style="color: var(--champagne)">Polish edition</p>
+                        <h3 lang="pl" translate="no">M&oacute;j dzie&#324;, moje cele, spok&oacute;j</h3>
+                        <p>The Polish-language edition of <span translate="no">My Day, My Goals, My Peace</span>, for anyone who prefers to plan in Polish. Available on Amazon.</p>
+                    </div>
+                    <div class="acts">
+                        <a href="https://www.amazon.com/dp/B0HQ1B44HV" target="_blank" rel="noopener" class="link-gold">Get the Polish edition on Amazon</a>
                     </div>
                 </div>
             </div>
