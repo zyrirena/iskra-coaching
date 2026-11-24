@@ -543,10 +543,13 @@
                 <!--
                     FORM SETUP: GitHub Pages is static, so connect a form service.
                     1) Create a free form at formspree.io (or Web3Forms / Getform).
-                    2) Replace action="#" below with your endpoint URL.
+                    2) The action below is the Formspree endpoint (https://formspree.io/f/xnpjjdbo).
                     The script then posts the answers and shows a success message automatically.
                 -->
-                <form class="q-form" id="qForm" action="#" method="POST" novalidate>
+                <form class="q-form" id="qForm" action="https://formspree.io/f/xnpjjdbo" method="POST" novalidate>
+<input type="hidden" name="_subject" value="New questionnaire response - iskracoaching.com">
+<input type="hidden" name="form_source" value="Questionnaire">
+<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="q-contact reveal">
                         <div>
                             <label for="name">Full name</label>
